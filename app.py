@@ -28,6 +28,33 @@ professionale.
 
 st.divider()
 
+# Sezione sul significato del rischio
+st.subheader("📌 Cosa Significa \"Rischio\" in Questa Guida?")
+
+st.markdown("""
+Quando parliamo di **basso, medio o alto rischio**, non ci riferiamo alla probabilità 
+di perdere denaro nel lungo periodo. Storicamente, un portafoglio diversificato 
+mantenuto per 10-15 anni o più ha ottime probabilità di generare rendimenti positivi, 
+indipendentemente dal livello di rischio scelto.
+
+Il **rischio** di cui parliamo è la **volatilità**: quanto il valore del tuo portafoglio 
+può oscillare nel breve-medio termine. Un portafoglio "ad alto rischio" può facilmente 
+perdere il 30-50% del suo valore durante una crisi di mercato, per poi recuperare negli 
+anni successivi. Un portafoglio "a basso rischio" avrà oscillazioni molto più contenute.
+
+**Perché questo è importante?** Il nemico principale dell'investitore non è il mercato, 
+ma il proprio comportamento. Le statistiche mostrano che molti investitori vendono nel 
+momento peggiore possibile — durante il massimo drawdown — trasformando una perdita 
+temporanea in una perdita permanente. Scegliere un livello di rischio adeguato alla 
+propria tolleranza psicologica significa scegliere un portafoglio che si riesce a 
+**mantenere anche nei momenti difficili**, senza farsi prendere dal panico.
+
+**In sintesi:** scegli il profilo di rischio non in base a quanto vuoi guadagnare, 
+ma in base a quanta oscillazione sei disposto a sopportare senza vendere.
+""")
+
+st.divider()
+
 # Definizione dei dati degli ETF
 def get_portafogli_data():
     """Restituisce i dati strutturati dei portafogli modello"""
