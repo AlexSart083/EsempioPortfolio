@@ -42,14 +42,15 @@ def get_portafogli_data():
             """,
             "portafogli": [
                 {
-                    "nome": "Portafoglio Semplificato Basso Rischio (ETF Unico)",
+                    "nome": "Basso Rischio 1 - ETF Unico (Orizzonte 7+ anni)",
                     "descrizione": """
                     Un ETF multi-asset bilanciato che investe in azioni e obbligazioni globali. 
-                    Adatto a chi cerca **massima semplicità** con un rischio contenuto.
+                    Adatto a chi cerca **massima semplicità** con un rischio contenuto e un 
+                    orizzonte temporale di almeno 7 anni.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard LifeStrategy 40% Equity UCITS ETF",
+                            "nome": "Vanguard LifeStrategy 40% Equity UCITS ETF Accumulating",
                             "isin": "IE00BMVB5P51",
                             "ter": "0.25%",
                             "tipo_asset": "Multi-Asset Bilanciato",
@@ -60,204 +61,94 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "Portafoglio Bilanciato Basso Rischio (Multi-ETF)",
+                    "nome": "Basso Rischio 2 - Multi-ETF (Orizzonte 5-7 anni)",
                     "descrizione": """
-                    Combina una **maggioranza di obbligazioni** con una minoranza di azioni globali 
-                    per un buon equilibrio tra crescita e stabilità.
+                    Portafoglio diversificato con **obbligazioni governative a breve e media scadenza**, 
+                    una componente di oro per protezione e una quota azionaria ridotta con focus 
+                    su bassa volatilità. Ideale per orizzonti temporali di 5-7 anni.
                     """,
                     "componenti": [
                         {
-                            "nome": "iShares Core Global Aggregate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.10%",
-                            "tipo_asset": "Obbligazionario Globale",
-                            "allocazione": "65%",
-                            "descrizione_breve": "Obbligazioni governative e corporate globali investment grade",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
-                        },
-                        {
-                            "nome": "iShares Core MSCI World UCITS ETF",
-                            "isin": "IE00B4L5Y983",
-                            "ter": "0.20%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "35%",
-                            "descrizione_breve": "Azioni dei paesi sviluppati di tutto il mondo",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5Y983"
-                        }
-                    ]
-                },
-                {
-                    "nome": "Portafoglio Eurozona Conservativo",
-                    "descrizione": """
-                    Portafoglio focalizzato sull'area euro con **obbligazioni a breve duration** 
-                    per minimizzare il rischio di tasso d'interesse e una piccola componente azionaria eurozona.
-                    """,
-                    "componenti": [
-                        {
-                            "nome": "Xtrackers II EUR Corporate Bond 1-3 UCITS ETF",
-                            "isin": "LU0478205379",
-                            "ter": "0.12%",
-                            "tipo_asset": "Obbligazionario Corporate EUR (1-3 anni)",
-                            "allocazione": "50%",
-                            "descrizione_breve": "Obbligazioni corporate in euro a breve scadenza",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0478205379"
-                        },
-                        {
-                            "nome": "iShares Euro Government Bond 1-3yr UCITS ETF",
-                            "isin": "IE00B4WXJJ64",
+                            "nome": "SPDR Bloomberg 1-3 Year Euro Government Bond UCITS ETF",
+                            "isin": "IE00B6YX5F63",
                             "ter": "0.15%",
                             "tipo_asset": "Obbligazionario Governativo EUR (1-3 anni)",
                             "allocazione": "30%",
                             "descrizione_breve": "Titoli di stato eurozona a breve scadenza",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4WXJJ64"
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B6YX5F63"
                         },
                         {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
-                            "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Azioni di grandi e medie imprese dell'Eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
-                        },
-                        {
-                            "nome": "iShares Physical Gold ETC",
-                            "isin": "IE00B4ND3602",
-                            "ter": "0.12%",
-                            "tipo_asset": "Oro Fisico",
-                            "allocazione": "5%",
-                            "descrizione_breve": "Oro fisico per protezione e diversificazione",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
-                        }
-                    ]
-                }
-            ]
-        },
-        "medio_basso_rischio": {
-            "titolo": "🔷 Portafogli a Medio-Basso Rischio",
-            "descrizione": """
-            Questi portafogli rappresentano un **compromesso tra stabilità e crescita moderata**, 
-            con una prevalenza obbligazionaria ma una maggiore componente azionaria rispetto ai 
-            portafogli a basso rischio. Ideali per chi cerca rendimenti leggermente superiori 
-            accettando una volatilità contenuta.
-            """,
-            "portafogli": [
-                {
-                    "nome": "Portafoglio Bilanciato EUR con Duration Media",
-                    "descrizione": """
-                    Portafoglio focalizzato sull'area euro con **obbligazioni a media duration** 
-                    (3-7 anni) che offre un buon equilibrio tra rendimento obbligazionario e 
-                    sensibilità ai tassi d'interesse.
-                    """,
-                    "componenti": [
-                        {
-                            "nome": "iShares Core Euro Corporate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.20%",
-                            "tipo_asset": "Obbligazionario Corporate EUR",
-                            "allocazione": "35%",
-                            "descrizione_breve": "Obbligazioni corporate investment grade in euro",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
-                        },
-                        {
-                            "nome": "Xtrackers II Eurozone Government Bond 3-5 UCITS ETF",
-                            "isin": "LU0290357846",
+                            "nome": "Amundi Euro Government Bond 3-5Y UCITS ETF",
+                            "isin": "LU1650488494",
                             "ter": "0.15%",
                             "tipo_asset": "Obbligazionario Governativo EUR (3-5 anni)",
-                            "allocazione": "25%",
+                            "allocazione": "20%",
                             "descrizione_breve": "Titoli di stato eurozona a media scadenza",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357846"
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU1650488494"
                         },
                         {
-                            "nome": "iShares Core MSCI World UCITS ETF",
-                            "isin": "IE00B4L5Y983",
-                            "ter": "0.20%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "25%",
-                            "descrizione_breve": "Azioni globali dei paesi sviluppati",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5Y983"
+                            "nome": "iShares EUR Government Bond 0-1yr UCITS ETF",
+                            "isin": "IE00B3FH7618",
+                            "ter": "0.07%",
+                            "tipo_asset": "Obbligazionario Governativo EUR (0-1 anno)",
+                            "allocazione": "15%",
+                            "descrizione_breve": "Titoli di stato eurozona a brevissima scadenza",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3FH7618"
                         },
                         {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
+                            "nome": "Xtrackers MSCI World UCITS ETF 1C",
+                            "isin": "IE00BJ0KDQ92",
                             "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
+                            "tipo_asset": "Azionario Globale",
+                            "allocazione": "15%",
+                            "descrizione_breve": "Azioni globali paesi sviluppati",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BJ0KDQ92"
+                        },
+                        {
+                            "nome": "iShares Edge MSCI World Minimum Volatility UCITS ETF USD (Acc)",
+                            "isin": "IE00B8FHGS14",
+                            "ter": "0.30%",
+                            "tipo_asset": "Azionario Globale Min. Volatilità",
                             "allocazione": "10%",
-                            "descrizione_breve": "Azioni dell'Eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
+                            "descrizione_breve": "Azioni globali a bassa volatilità",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B8FHGS14"
                         },
                         {
                             "nome": "iShares Physical Gold ETC",
                             "isin": "IE00B4ND3602",
                             "ter": "0.12%",
                             "tipo_asset": "Oro Fisico",
-                            "allocazione": "5%",
-                            "descrizione_breve": "Oro fisico per diversificazione",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Oro fisico per protezione e diversificazione",
                             "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
                         }
                     ]
                 },
                 {
-                    "nome": "Portafoglio All-Weather Moderato",
+                    "nome": "Basso Rischio 3 - Target 2029 (Orizzonte ~3 anni)",
                     "descrizione": """
-                    Ispirato al portafoglio **All-Weather** di Ray Dalio, questo portafoglio mira 
-                    a performare bene in diverse condizioni economiche utilizzando diverse 
-                    duration obbligazionarie, azioni, materie prime e oro.
+                    Portafoglio con **ETF a scadenza definita (Target Maturity 2029)**, ideale per chi 
+                    ha un orizzonte temporale preciso di circa 3 anni. Combina obbligazioni corporate 
+                    e governative con scadenza nel 2029.
                     """,
                     "componenti": [
                         {
-                            "nome": "Xtrackers II Eurozone Government Bond 15-30 UCITS ETF",
-                            "isin": "LU0290357929",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (15-30 anni)",
-                            "allocazione": "30%",
-                            "descrizione_breve": "Titoli di stato eurozona a lunga scadenza (protezione deflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357929"
-                        },
-                        {
-                            "nome": "Xtrackers II Eurozone Government Bond 3-5 UCITS ETF",
-                            "isin": "LU0290357846",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (3-5 anni)",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Titoli di stato eurozona a media scadenza",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357846"
-                        },
-                        {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "30%",
-                            "descrizione_breve": "Azioni globali (crescita economica)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
-                        },
-                        {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
+                            "nome": "iShares iBonds Dec 2029 Term EUR Corporate UCITS ETF",
+                            "isin": "IE000IHURBR0",
                             "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
-                            "allocazione": "5%",
-                            "descrizione_breve": "Azioni eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
+                            "tipo_asset": "Obbligazionario Corporate EUR (Target 2029)",
+                            "allocazione": "50%",
+                            "descrizione_breve": "Obbligazioni corporate EUR con scadenza dicembre 2029",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE000IHURBR0"
                         },
                         {
-                            "nome": "iShares Physical Gold ETC",
-                            "isin": "IE00B4ND3602",
+                            "nome": "Xtrackers II Target Maturity Sept 2029 Italy and Spain Government Bond UCITS ETF 1C",
+                            "isin": "LU0484969463",
                             "ter": "0.12%",
-                            "tipo_asset": "Oro Fisico",
-                            "allocazione": "12%",
-                            "descrizione_breve": "Oro fisico (protezione inflazione e crisi)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
-                        },
-                        {
-                            "nome": "Invesco Bloomberg Commodity UCITS ETF",
-                            "isin": "IE00B4L5YX21",
-                            "ter": "0.19%",
-                            "tipo_asset": "Materie Prime",
-                            "allocazione": "8%",
-                            "descrizione_breve": "Basket di materie prime (protezione inflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5YX21"
+                            "tipo_asset": "Obbligazionario Governativo EUR (Target 2029)",
+                            "allocazione": "50%",
+                            "descrizione_breve": "Titoli di stato Italia e Spagna con scadenza settembre 2029",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0484969463"
                         }
                     ]
                 }
@@ -267,19 +158,20 @@ def get_portafogli_data():
             "titolo": "⚖️ Portafogli a Medio Rischio",
             "descrizione": """
             Questi portafogli cercano un **equilibrio tra crescita del capitale e moderazione del rischio**. 
-            Adatti a chi ha un orizzonte temporale medio-lungo e accetta una moderata volatilità 
+            Adatti a chi ha un orizzonte temporale di almeno 10 anni e accetta una moderata volatilità 
             per ottenere rendimenti potenzialmente più elevati.
             """,
             "portafogli": [
                 {
-                    "nome": "Portafoglio Semplificato Medio Rischio (ETF Unico)",
+                    "nome": "Medio Rischio 1 - ETF Unico (Orizzonte 10+ anni)",
                     "descrizione": """
-                    Un ETF multi-asset con una **maggiore esposizione azionaria**, per chi cerca 
-                    un buon compromesso tra semplicità e potenziale di rendimento.
+                    Un ETF multi-asset con una **maggiore esposizione azionaria (60%)**, per chi cerca 
+                    un buon compromesso tra semplicità e potenziale di rendimento con un orizzonte 
+                    temporale lungo.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard LifeStrategy 60% Equity UCITS ETF",
+                            "nome": "Vanguard LifeStrategy 60% Equity UCITS ETF Accumulating",
                             "isin": "IE00BMVB5R75",
                             "ter": "0.25%",
                             "tipo_asset": "Multi-Asset Bilanciato",
@@ -290,74 +182,39 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "Portafoglio Bilanciato Medio Rischio (Multi-ETF)",
+                    "nome": "Medio Rischio 2 - Multi-ETF Bilanciato (Orizzonte 10+ anni)",
                     "descrizione": """
-                    Una ripartizione **50/50** tra azioni e obbligazioni per una crescita moderata 
-                    nel medio-lungo periodo.
+                    Portafoglio diversificato con **60% azionario globale**, obbligazioni corporate 
+                    e governative a breve termine, e oro per protezione. Equilibrio tra crescita 
+                    e stabilità.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "50%",
-                            "descrizione_breve": "Azioni di paesi sviluppati ed emergenti a livello globale",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
+                            "nome": "Amundi Prime All Country World UCITS ETF Acc",
+                            "isin": "IE0003XJA0J9",
+                            "ter": "0.07%",
+                            "tipo_asset": "Azionario Globale (Sviluppati + Emergenti)",
+                            "allocazione": "60%",
+                            "descrizione_breve": "Azioni globali paesi sviluppati ed emergenti",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE0003XJA0J9"
                         },
                         {
-                            "nome": "iShares Core Global Aggregate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.10%",
-                            "tipo_asset": "Obbligazionario Globale",
-                            "allocazione": "50%",
-                            "descrizione_breve": "Obbligazioni governative e corporate globali investment grade",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
-                        }
-                    ]
-                },
-                {
-                    "nome": "Portafoglio Globale con Oro e Eurozona",
-                    "descrizione": """
-                    Portafoglio diversificato **50/50 azioni/obbligazioni** con componente di 
-                    oro per protezione e una quota di azioni eurozona.
-                    """,
-                    "componenti": [
-                        {
-                            "nome": "iShares Core MSCI World UCITS ETF",
-                            "isin": "IE00B4L5Y983",
-                            "ter": "0.20%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "38%",
-                            "descrizione_breve": "Azioni globali paesi sviluppati",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5Y983"
-                        },
-                        {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
-                            "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
-                            "allocazione": "7%",
-                            "descrizione_breve": "Azioni dell'Eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
-                        },
-                        {
-                            "nome": "iShares Core Euro Corporate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.20%",
+                            "nome": "Vanguard EUR Corporate Bond UCITS ETF Accumulating",
+                            "isin": "IE00BGYWT403",
+                            "ter": "0.07%",
                             "tipo_asset": "Obbligazionario Corporate EUR",
-                            "allocazione": "25%",
-                            "descrizione_breve": "Obbligazioni corporate in euro",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
+                            "allocazione": "15%",
+                            "descrizione_breve": "Obbligazioni corporate investment grade in euro",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BGYWT403"
                         },
                         {
-                            "nome": "iShares Core Global Aggregate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.10%",
-                            "tipo_asset": "Obbligazionario Globale",
-                            "allocazione": "20%",
-                            "descrizione_breve": "Obbligazioni globali diversificate",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
+                            "nome": "iShares Euro Government Bond 1-3yr UCITS ETF (Acc)",
+                            "isin": "IE00B3VTMJ91",
+                            "ter": "0.15%",
+                            "tipo_asset": "Obbligazionario Governativo EUR (1-3 anni)",
+                            "allocazione": "15%",
+                            "descrizione_breve": "Titoli di stato eurozona a breve scadenza",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3VTMJ91"
                         },
                         {
                             "nome": "iShares Physical Gold ETC",
@@ -365,71 +222,81 @@ def get_portafogli_data():
                             "ter": "0.12%",
                             "tipo_asset": "Oro Fisico",
                             "allocazione": "10%",
-                            "descrizione_breve": "Oro fisico per protezione del portafoglio",
+                            "descrizione_breve": "Oro fisico per protezione e diversificazione",
                             "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
                         }
                     ]
                 },
                 {
-                    "nome": "Portafoglio All-Weather Bilanciato",
+                    "nome": "Medio Rischio 3 - Diversificato con Real Estate e Inflation-Linked (Orizzonte 10+ anni)",
                     "descrizione": """
-                    Portafoglio **All-Weather** bilanciato con diverse asset class per affrontare 
-                    vari scenari economici: crescita, recessione, inflazione e deflazione.
+                    Portafoglio **altamente diversificato** con esposizione a mercati sviluppati ed emergenti, 
+                    immobiliare europeo, oro, obbligazioni inflation-linked e governative a diverse scadenze. 
+                    Pensato per protezione inflazione e decorrelazione.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "30%",
-                            "descrizione_breve": "Azioni globali (crescita)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
+                            "nome": "UBS Core MSCI World UCITS ETF USD acc",
+                            "isin": "IE00BD4TXV59",
+                            "ter": "0.06%",
+                            "tipo_asset": "Azionario Globale Paesi Sviluppati",
+                            "allocazione": "50%",
+                            "descrizione_breve": "Azioni globali paesi sviluppati (replica ottimizzata)",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BD4TXV59"
                         },
                         {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
-                            "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
+                            "nome": "iShares Core MSCI Emerging Markets IMI UCITS ETF (Acc)",
+                            "isin": "IE00BKM4GZ66",
+                            "ter": "0.18%",
+                            "tipo_asset": "Azionario Mercati Emergenti",
                             "allocazione": "5%",
-                            "descrizione_breve": "Azioni eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
+                            "descrizione_breve": "Azioni mercati emergenti (large, mid e small cap)",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BKM4GZ66"
                         },
                         {
-                            "nome": "Xtrackers II Eurozone Government Bond 15-30 UCITS ETF",
-                            "isin": "LU0290357929",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (15-30 anni)",
-                            "allocazione": "25%",
-                            "descrizione_breve": "Obbligazioni lunga duration (deflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357929"
+                            "nome": "Xtrackers FTSE EPRA/NAREIT Developed Europe Real Estate UCITS ETF 1C",
+                            "isin": "LU0489337690",
+                            "ter": "0.33%",
+                            "tipo_asset": "Immobiliare Europa",
+                            "allocazione": "5%",
+                            "descrizione_breve": "REIT e società immobiliari europee",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0489337690"
                         },
                         {
-                            "nome": "Xtrackers II Eurozone Government Bond 3-5 UCITS ETF",
-                            "isin": "LU0290357846",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (3-5 anni)",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Obbligazioni media duration",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357846"
-                        },
-                        {
-                            "nome": "iShares Physical Gold ETC",
-                            "isin": "IE00B4ND3602",
+                            "nome": "Invesco Physical Gold A",
+                            "isin": "IE00B579F325",
                             "ter": "0.12%",
                             "tipo_asset": "Oro Fisico",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Oro fisico (inflazione/crisi)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
+                            "allocazione": "10%",
+                            "descrizione_breve": "Oro fisico per protezione",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B579F325"
                         },
                         {
-                            "nome": "Invesco Bloomberg Commodity UCITS ETF",
-                            "isin": "IE00B4L5YX21",
-                            "ter": "0.19%",
-                            "tipo_asset": "Materie Prime",
+                            "nome": "iShares Euro Inflation Linked Government Bond UCITS ETF",
+                            "isin": "IE00B0M62X26",
+                            "ter": "0.09%",
+                            "tipo_asset": "Obbligazionario Inflation-Linked EUR",
                             "allocazione": "10%",
-                            "descrizione_breve": "Materie prime diversificate (inflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5YX21"
+                            "descrizione_breve": "Obbligazioni governative eurozona indicizzate all'inflazione",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B0M62X26"
+                        },
+                        {
+                            "nome": "SPDR Bloomberg 1-3 Year Euro Government Bond UCITS ETF",
+                            "isin": "IE00B6YX5F63",
+                            "ter": "0.15%",
+                            "tipo_asset": "Obbligazionario Governativo EUR (1-3 anni)",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Titoli di stato eurozona a breve scadenza",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B6YX5F63"
+                        },
+                        {
+                            "nome": "Amundi Euro Government Bond 10-15Y UCITS ETF Acc",
+                            "isin": "LU1650489385",
+                            "ter": "0.15%",
+                            "tipo_asset": "Obbligazionario Governativo EUR (10-15 anni)",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Titoli di stato eurozona a lunga scadenza",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU1650489385"
                         }
                     ]
                 }
@@ -444,165 +311,103 @@ def get_portafogli_data():
             """,
             "portafogli": [
                 {
-                    "nome": "Portafoglio Semplificato Alto Rischio (ETF Unico)",
+                    "nome": "Alto Rischio 1 - ETF Unico 100% Azionario Globale",
                     "descrizione": """
-                    Un ETF **100% azionario globale**, ideale per chi ha un lungo orizzonte temporale 
-                    e tolleranza per le fluttuazioni di mercato.
+                    Un ETF **100% azionario globale** che include paesi sviluppati ed emergenti. 
+                    Massima semplicità per chi cerca esposizione completa ai mercati azionari mondiali.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
+                            "nome": "SPDR MSCI All Country World UCITS ETF (Acc)",
+                            "isin": "IE00B44Z5B48",
+                            "ter": "0.12%",
+                            "tipo_asset": "Azionario Globale (Sviluppati + Emergenti)",
                             "allocazione": "100%",
-                            "descrizione_breve": "Azioni di paesi sviluppati ed emergenti a livello globale",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
+                            "descrizione_breve": "Azioni globali paesi sviluppati ed emergenti",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B44Z5B48"
                         }
                     ]
                 },
                 {
-                    "nome": "Portafoglio Azionario Diversificato Alto Rischio (Multi-ETF)",
+                    "nome": "Alto Rischio 2 - Factor Investing (Value, Momentum, Quality)",
                     "descrizione": """
-                    Un portafoglio **quasi interamente azionario**, diversificato su varie aree 
-                    geografiche per massimizzare il potenziale di crescita.
+                    Portafoglio basato su **strategie factor investing** che combinano i fattori 
+                    Value, Momentum e Quality per cercare di sovraperformare il mercato nel lungo termine, 
+                    con una componente di oro per decorrelazione.
                     """,
                     "componenti": [
                         {
-                            "nome": "iShares Core MSCI World UCITS ETF",
-                            "isin": "IE00B4L5Y983",
-                            "ter": "0.20%",
-                            "tipo_asset": "Azionario Paesi Sviluppati",
-                            "allocazione": "75%",
-                            "descrizione_breve": "Azioni dei paesi sviluppati di tutto il mondo",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5Y983"
+                            "nome": "iShares Edge MSCI World Value Factor UCITS ETF",
+                            "isin": "IE00BP3QZB59",
+                            "ter": "0.25%",
+                            "tipo_asset": "Azionario Globale Factor Value",
+                            "allocazione": "30%",
+                            "descrizione_breve": "Azioni globali selezionate per fattore Value",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BP3QZB59"
                         },
                         {
-                            "nome": "iShares Core MSCI Emerging Markets IMI UCITS ETF",
-                            "isin": "IE00BKM4GZ66",
-                            "ter": "0.18%",
-                            "tipo_asset": "Azionario Mercati Emergenti",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Azioni di paesi emergenti (large, mid e small cap)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BKM4GZ66"
+                            "nome": "Xtrackers MSCI World Momentum UCITS ETF 1C",
+                            "isin": "IE00BL25JP72",
+                            "ter": "0.25%",
+                            "tipo_asset": "Azionario Globale Factor Momentum",
+                            "allocazione": "30%",
+                            "descrizione_breve": "Azioni globali selezionate per fattore Momentum",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BL25JP72"
                         },
                         {
-                            "nome": "iShares Core Global Aggregate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.10%",
-                            "tipo_asset": "Obbligazionario Globale",
-                            "allocazione": "10%",
-                            "descrizione_breve": "Obbligazioni globali per minima stabilizzazione",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
-                        }
-                    ]
-                },
-                {
-                    "nome": "Portafoglio Azionario Globale con Oro e Eurozona",
-                    "descrizione": """
-                    Portafoglio **80% azionario** con una componente di oro per protezione 
-                    e presenza dell'eurozona per diversificazione geografica.
-                    """,
-                    "componenti": [
-                        {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "65%",
-                            "descrizione_breve": "Azioni globali sviluppati ed emergenti",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
+                            "nome": "Xtrackers MSCI World Quality UCITS ETF 1C",
+                            "isin": "IE00BL25JL35",
+                            "ter": "0.25%",
+                            "tipo_asset": "Azionario Globale Factor Quality",
+                            "allocazione": "25%",
+                            "descrizione_breve": "Azioni globali selezionate per fattore Quality",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BL25JL35"
                         },
                         {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
-                            "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
-                            "allocazione": "10%",
-                            "descrizione_breve": "Azioni dell'Eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
-                        },
-                        {
-                            "nome": "iShares Physical Gold ETC",
-                            "isin": "IE00B4ND3602",
+                            "nome": "WisdomTree Core Physical Gold",
+                            "isin": "JE00BN2CJ301",
                             "ter": "0.12%",
                             "tipo_asset": "Oro Fisico",
                             "allocazione": "15%",
-                            "descrizione_breve": "Oro fisico per protezione e decorrelazione",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
-                        },
-                        {
-                            "nome": "iShares Core Global Aggregate Bond UCITS ETF",
-                            "isin": "IE00B3F81R35",
-                            "ter": "0.10%",
-                            "tipo_asset": "Obbligazionario Globale",
-                            "allocazione": "10%",
-                            "descrizione_breve": "Obbligazioni per stabilizzazione minima",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B3F81R35"
+                            "descrizione_breve": "Oro fisico per decorrelazione",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=JE00BN2CJ301"
                         }
                     ]
                 },
                 {
-                    "nome": "Portafoglio All-Weather Aggressivo",
+                    "nome": "Alto Rischio 3 - Azionario Bilanciato USA/Ex-USA con Bond Eurozona",
                     "descrizione": """
-                    Versione **aggressiva del portafoglio All-Weather** con maggiore 
-                    componente azionaria ma mantenendo diversificazione su oro, obbligazioni 
-                    a diverse duration e materie prime.
+                    Portafoglio **80% azionario** con bilanciamento tra mercato USA e resto del mondo 
+                    (ex-USA), più una componente obbligazionaria governativa eurozona per 
+                    stabilizzazione e diversificazione valutaria.
                     """,
                     "componenti": [
                         {
-                            "nome": "Vanguard FTSE All-World UCITS ETF",
-                            "isin": "IE00BK5BQT80",
-                            "ter": "0.22%",
-                            "tipo_asset": "Azionario Globale",
-                            "allocazione": "45%",
-                            "descrizione_breve": "Azioni globali (crescita)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
-                        },
-                        {
-                            "nome": "iShares Core MSCI EMU UCITS ETF",
-                            "isin": "IE00B53QG562",
+                            "nome": "Xtrackers MSCI World ex USA UCITS ETF 1C",
+                            "isin": "IE0006WW1TQ4",
                             "ter": "0.12%",
-                            "tipo_asset": "Azionario Eurozona",
-                            "allocazione": "5%",
-                            "descrizione_breve": "Azioni eurozona",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B53QG562"
+                            "tipo_asset": "Azionario Globale ex-USA",
+                            "allocazione": "40%",
+                            "descrizione_breve": "Azioni paesi sviluppati escluso USA",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE0006WW1TQ4"
                         },
                         {
-                            "nome": "Xtrackers II Eurozone Government Bond 15-30 UCITS ETF",
-                            "isin": "LU0290357929",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (15-30 anni)",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Obbligazioni lunga duration (deflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357929"
+                            "nome": "SPDR S&P 500 UCITS ETF (Acc)",
+                            "isin": "IE000XZSV718",
+                            "ter": "0.03%",
+                            "tipo_asset": "Azionario USA Large Cap",
+                            "allocazione": "40%",
+                            "descrizione_breve": "500 maggiori aziende USA",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE000XZSV718"
                         },
                         {
-                            "nome": "Xtrackers II Eurozone Government Bond 3-5 UCITS ETF",
-                            "isin": "LU0290357846",
-                            "ter": "0.15%",
-                            "tipo_asset": "Obbligazionario Governativo EUR (3-5 anni)",
-                            "allocazione": "10%",
-                            "descrizione_breve": "Obbligazioni media duration",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=LU0290357846"
-                        },
-                        {
-                            "nome": "iShares Physical Gold ETC",
-                            "isin": "IE00B4ND3602",
-                            "ter": "0.12%",
-                            "tipo_asset": "Oro Fisico",
-                            "allocazione": "15%",
-                            "descrizione_breve": "Oro fisico (inflazione/crisi)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
-                        },
-                        {
-                            "nome": "Invesco Bloomberg Commodity UCITS ETF",
-                            "isin": "IE00B4L5YX21",
-                            "ter": "0.19%",
-                            "tipo_asset": "Materie Prime",
-                            "allocazione": "10%",
-                            "descrizione_breve": "Materie prime (inflazione)",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4L5YX21"
+                            "nome": "Vanguard EUR Eurozone Government Bond UCITS ETF Accumulating",
+                            "isin": "IE00BH04GL39",
+                            "ter": "0.07%",
+                            "tipo_asset": "Obbligazionario Governativo Eurozona",
+                            "allocazione": "20%",
+                            "descrizione_breve": "Titoli di stato eurozona tutte le scadenze",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BH04GL39"
                         }
                     ]
                 }
@@ -653,15 +458,14 @@ def mostra_portafoglio(portafoglio):
 st.sidebar.title("📋 Navigazione")
 st.sidebar.markdown("""
 Scegli il profilo di rischio più adatto alle tue esigenze:
-- **Basso Rischio**: Stabilità e protezione
-- **Medio-Basso Rischio**: Lieve crescita con stabilità
-- **Medio Rischio**: Equilibrio crescita/stabilità  
-- **Alto Rischio**: Massima crescita di lungo periodo
+- **Basso Rischio**: Stabilità e protezione (3-7+ anni)
+- **Medio Rischio**: Equilibrio crescita/stabilità (10+ anni)
+- **Alto Rischio**: Massima crescita di lungo periodo (10+ anni)
 """)
 
 profilo_selezionato = st.sidebar.radio(
     "Vai alla sezione:",
-    ["Tutti i Portafogli", "Basso Rischio", "Medio-Basso Rischio", "Medio Rischio", "Alto Rischio"]
+    ["Tutti i Portafogli", "Basso Rischio", "Medio Rischio", "Alto Rischio"]
 )
 
 # Carica i dati
@@ -682,13 +486,10 @@ def mostra_categoria(categoria_key, categoria_data):
 # Mostra i portafogli in base alla selezione
 if profilo_selezionato == "Tutti i Portafogli":
     mostra_categoria("basso_rischio", portafogli_data["basso_rischio"])
-    mostra_categoria("medio_basso_rischio", portafogli_data["medio_basso_rischio"])
     mostra_categoria("medio_rischio", portafogli_data["medio_rischio"])
     mostra_categoria("alto_rischio", portafogli_data["alto_rischio"])
 elif profilo_selezionato == "Basso Rischio":
     mostra_categoria("basso_rischio", portafogli_data["basso_rischio"])
-elif profilo_selezionato == "Medio-Basso Rischio":
-    mostra_categoria("medio_basso_rischio", portafogli_data["medio_basso_rischio"])
 elif profilo_selezionato == "Medio Rischio":
     mostra_categoria("medio_rischio", portafogli_data["medio_rischio"])
 elif profilo_selezionato == "Alto Rischio":
@@ -721,7 +522,7 @@ inclusa la possibile perdita del capitale investito.
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: gray;'>
-    <small>App creata a scopo didattico • Dati aggiornati al 2024 • 
+    <small>App creata a scopo didattico • Dati aggiornati a Dicembre 2025 • 
     Verifica sempre le informazioni più recenti sui siti ufficiali degli emittenti</small>
 </div>
 """, unsafe_allow_html=True)
