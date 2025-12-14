@@ -44,7 +44,7 @@ def get_portafogli_data():
             """,
             "portafogli": [
                 {
-                    "nome": "⭐ Basso Rischio 1 - ETF Unico (Orizzonte 7+ anni)",
+                    "nome": "⭐ Basso Rischio 1 - Vanguard LifeStrategy 40% (Orizzonte 7+ anni)",
                     "descrizione": """
                     **Difficoltà: Minima (1 ETF)** - *Set and forget*
                     
@@ -65,7 +65,28 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐ Basso Rischio 2 - Target 2029 (Orizzonte ~3 anni)",
+                    "nome": "⭐ Basso Rischio 2 - iShares Conservative Portfolio (Orizzonte 5+ anni)",
+                    "descrizione": """
+                    **Difficoltà: Minima (1 ETF)** - *Set and forget*
+                    
+                    ETF multi-asset **conservativo** di iShares che offre un'allocazione prudente 
+                    con prevalenza obbligazionaria. Alternativa al LifeStrategy per chi preferisce 
+                    la gamma iShares. Non richiede ribilanciamento.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "iShares Conservative Portfolio UCITS ETF EUR (Acc)",
+                            "isin": "IE00BLP53M98",
+                            "ter": "0.25%",
+                            "tipo_asset": "Multi-Asset Conservativo",
+                            "allocazione": "100%",
+                            "descrizione_breve": "Portafoglio multi-asset conservativo con prevalenza obbligazionaria",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BLP53M98"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐ Basso Rischio 3 - Target 2029 (Orizzonte ~3 anni)",
                     "descrizione": """
                     **Difficoltà: Minima (2 ETF)** - *Scadenza definita, nessun ribilanciamento necessario*
                     
@@ -95,7 +116,46 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐⭐⭐ Basso Rischio 3 - Multi-ETF Diversificato (Orizzonte 5-7 anni)",
+                    "nome": "⭐⭐ Basso Rischio 4 - Quality + Min Vol con Bond (Orizzonte 5-7 anni)",
+                    "descrizione": """
+                    **Difficoltà: Bassa (3 ETF)** - *Ribilanciamento annuale consigliato*
+                    
+                    Portafoglio con **60% obbligazioni governative eurozona** e 40% azionario 
+                    difensivo basato sui fattori Quality e Minimum Volatility. Approccio conservativo 
+                    all'azionario con focus su aziende di qualità e bassa volatilità.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "Vanguard EUR Eurozone Government Bond UCITS ETF Accumulating",
+                            "isin": "IE00BH04GL39",
+                            "ter": "0.07%",
+                            "tipo_asset": "Obbligazionario Governativo Eurozona",
+                            "allocazione": "60%",
+                            "descrizione_breve": "Titoli di stato eurozona tutte le scadenze",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BH04GL39"
+                        },
+                        {
+                            "nome": "Xtrackers MSCI World Quality UCITS ETF 1C",
+                            "isin": "IE00BL25JL35",
+                            "ter": "0.25%",
+                            "tipo_asset": "Azionario Globale Factor Quality",
+                            "allocazione": "30%",
+                            "descrizione_breve": "Azioni globali selezionate per fattore Quality",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BL25JL35"
+                        },
+                        {
+                            "nome": "iShares Edge MSCI World Minimum Volatility UCITS ETF USD (Acc)",
+                            "isin": "IE00B8FHGS14",
+                            "ter": "0.30%",
+                            "tipo_asset": "Azionario Globale Min. Volatilità",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Azioni globali a bassa volatilità",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B8FHGS14"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐⭐⭐ Basso Rischio 5 - Multi-ETF Diversificato (Orizzonte 5-7 anni)",
                     "descrizione": """
                     **Difficoltà: Media-Alta (6 ETF)** - *Richiede ribilanciamento periodico*
                     
@@ -173,7 +233,7 @@ def get_portafogli_data():
             """,
             "portafogli": [
                 {
-                    "nome": "⭐ Medio Rischio 1 - ETF Unico (Orizzonte 10+ anni)",
+                    "nome": "⭐ Medio Rischio 1 - Vanguard LifeStrategy 60% (Orizzonte 10+ anni)",
                     "descrizione": """
                     **Difficoltà: Minima (1 ETF)** - *Set and forget*
                     
@@ -194,7 +254,28 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐⭐ Medio Rischio 2 - Multi-ETF Bilanciato (Orizzonte 10+ anni)",
+                    "nome": "⭐ Medio Rischio 2 - iShares Moderate Portfolio (Orizzonte 7+ anni)",
+                    "descrizione": """
+                    **Difficoltà: Minima (1 ETF)** - *Set and forget*
+                    
+                    ETF multi-asset **moderato** di iShares che offre un'allocazione bilanciata 
+                    tra azioni e obbligazioni. Alternativa al LifeStrategy per chi preferisce 
+                    la gamma iShares. Non richiede ribilanciamento.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "iShares Moderate Portfolio UCITS ETF EUR (Acc)",
+                            "isin": "IE00BLLZQS08",
+                            "ter": "0.25%",
+                            "tipo_asset": "Multi-Asset Moderato",
+                            "allocazione": "100%",
+                            "descrizione_breve": "Portafoglio multi-asset moderato con allocazione bilanciata",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BLLZQS08"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐⭐ Medio Rischio 3 - Multi-ETF Bilanciato (Orizzonte 10+ anni)",
                     "descrizione": """
                     **Difficoltà: Bassa (4 ETF)** - *Struttura classica, facile da gestire*
                     
@@ -242,7 +323,55 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐⭐⭐ Medio Rischio 3 - Diversificato con Real Estate e Inflation-Linked (Orizzonte 10+ anni)",
+                    "nome": "⭐⭐ Medio Rischio 4 - Multifactor + Developed World (Orizzonte 10+ anni)",
+                    "descrizione": """
+                    **Difficoltà: Bassa (4 ETF)** - *Ribilanciamento annuale consigliato*
+                    
+                    Portafoglio **60% azionario** che combina un ETF World tradizionale con un ETF 
+                    **Multifactor** (che integra più fattori: Value, Momentum, Quality, Size). 
+                    Oro per decorrelazione e obbligazioni governative eurozona per stabilità.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "Vanguard FTSE Developed World UCITS ETF Acc",
+                            "isin": "IE00BK5BQV03",
+                            "ter": "0.12%",
+                            "tipo_asset": "Azionario Globale Paesi Sviluppati",
+                            "allocazione": "40%",
+                            "descrizione_breve": "Azioni globali paesi sviluppati",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQV03"
+                        },
+                        {
+                            "nome": "iShares STOXX World Equity Multifactor UCITS ETF USD (Acc)",
+                            "isin": "IE00BZ0PKT83",
+                            "ter": "0.30%",
+                            "tipo_asset": "Azionario Globale Multifactor",
+                            "allocazione": "20%",
+                            "descrizione_breve": "Azioni globali selezionate con approccio multi-fattoriale",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BZ0PKT83"
+                        },
+                        {
+                            "nome": "Vanguard EUR Eurozone Government Bond UCITS ETF Accumulating",
+                            "isin": "IE00BH04GL39",
+                            "ter": "0.07%",
+                            "tipo_asset": "Obbligazionario Governativo Eurozona",
+                            "allocazione": "30%",
+                            "descrizione_breve": "Titoli di stato eurozona tutte le scadenze",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BH04GL39"
+                        },
+                        {
+                            "nome": "iShares Physical Gold ETC",
+                            "isin": "IE00B4ND3602",
+                            "ter": "0.12%",
+                            "tipo_asset": "Oro Fisico",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Oro fisico per protezione e diversificazione",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B4ND3602"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐⭐⭐ Medio Rischio 5 - Diversificato con Real Estate e Inflation-Linked (Orizzonte 10+ anni)",
                     "descrizione": """
                     **Difficoltà: Media-Alta (7 ETF)** - *Più complesso, molte asset class*
                     
@@ -329,7 +458,7 @@ def get_portafogli_data():
             """,
             "portafogli": [
                 {
-                    "nome": "⭐ Alto Rischio 1 - ETF Unico 100% Azionario Globale",
+                    "nome": "⭐ Alto Rischio 1 - SPDR ACWI 100% Azionario Globale",
                     "descrizione": """
                     **Difficoltà: Minima (1 ETF)** - *Massima semplicità*
                     
@@ -350,7 +479,28 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐⭐ Alto Rischio 2 - Azionario Bilanciato USA/Ex-USA con Bond Eurozona",
+                    "nome": "⭐ Alto Rischio 2 - Vanguard LifeStrategy 80% (Orizzonte 10+ anni)",
+                    "descrizione": """
+                    **Difficoltà: Minima (1 ETF)** - *Set and forget*
+                    
+                    Un ETF multi-asset con **80% esposizione azionaria** e 20% obbligazionaria. 
+                    Offre un profilo di rischio elevato ma con una piccola componente stabilizzatrice.
+                    Non richiede ribilanciamento.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "Vanguard LifeStrategy 80% Equity UCITS ETF (EUR) Accumulating",
+                            "isin": "IE00BMVB5R75",
+                            "ter": "0.25%",
+                            "tipo_asset": "Multi-Asset Aggressivo",
+                            "allocazione": "100%",
+                            "descrizione_breve": "Investimento globale con 80% azioni e 20% obbligazioni",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BMVB5R75"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐⭐ Alto Rischio 3 - Azionario Bilanciato USA/Ex-USA con Bond Eurozona",
                     "descrizione": """
                     **Difficoltà: Bassa (3 ETF)** - *Scelta attiva sul peso USA*
                     
@@ -390,7 +540,46 @@ def get_portafogli_data():
                     ]
                 },
                 {
-                    "nome": "⭐⭐⭐ Alto Rischio 3 - Factor Investing (Value, Momentum, Quality)",
+                    "nome": "⭐⭐ Alto Rischio 4 - All-World con Small Cap Tilt",
+                    "descrizione": """
+                    **Difficoltà: Bassa (3 ETF)** - *Ribilanciamento annuale consigliato*
+                    
+                    Portafoglio **100% azionario** con esposizione globale e un **tilt verso le 
+                    small cap** sia dei paesi sviluppati che emergenti. Le small cap storicamente 
+                    offrono un premio di rendimento nel lungo periodo a fronte di maggiore volatilità.
+                    """,
+                    "componenti": [
+                        {
+                            "nome": "Vanguard FTSE All-World UCITS ETF (USD) Accumulating",
+                            "isin": "IE00BK5BQT80",
+                            "ter": "0.22%",
+                            "tipo_asset": "Azionario Globale (Sviluppati + Emergenti)",
+                            "allocazione": "85%",
+                            "descrizione_breve": "Azioni globali large e mid cap",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BK5BQT80"
+                        },
+                        {
+                            "nome": "iShares MSCI World Small Cap UCITS ETF",
+                            "isin": "IE00BF4RFH31",
+                            "ter": "0.35%",
+                            "tipo_asset": "Azionario Globale Small Cap",
+                            "allocazione": "10%",
+                            "descrizione_breve": "Azioni small cap paesi sviluppati",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BF4RFH31"
+                        },
+                        {
+                            "nome": "SPDR MSCI Emerging Markets Small Cap UCITS ETF",
+                            "isin": "IE00B48X4842",
+                            "ter": "0.55%",
+                            "tipo_asset": "Azionario Emergenti Small Cap",
+                            "allocazione": "5%",
+                            "descrizione_breve": "Azioni small cap mercati emergenti",
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00B48X4842"
+                        }
+                    ]
+                },
+                {
+                    "nome": "⭐⭐⭐ Alto Rischio 5 - Factor Investing (Value, Momentum, Quality)",
                     "descrizione": """
                     **Difficoltà: Media-Alta (4 ETF)** - *Richiede comprensione dei fattori*
                     
