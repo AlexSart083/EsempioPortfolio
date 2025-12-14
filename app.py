@@ -51,12 +51,12 @@ def get_portafogli_data():
                     "componenti": [
                         {
                             "nome": "Vanguard LifeStrategy 40% Equity UCITS ETF Accumulating",
-                            "isin": "IE00BMVB5P51",
+                            "isin": "IE00BMVB5M21",
                             "ter": "0.25%",
                             "tipo_asset": "Multi-Asset Bilanciato",
                             "allocazione": "100%",
                             "descrizione_breve": "Investimento globale con 40% azioni e 60% obbligazioni",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BMVB5P51"
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BMVB5M21"
                         }
                     ]
                 },
@@ -172,12 +172,12 @@ def get_portafogli_data():
                     "componenti": [
                         {
                             "nome": "Vanguard LifeStrategy 60% Equity UCITS ETF Accumulating",
-                            "isin": "IE00BMVB5R75",
+                            "isin": "IE00BMVB5P51",
                             "ter": "0.25%",
                             "tipo_asset": "Multi-Asset Bilanciato",
                             "allocazione": "100%",
                             "descrizione_breve": "Investimento globale con 60% azioni e 40% obbligazioni",
-                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BMVB5R75"
+                            "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BMVB5P51"
                         }
                     ]
                 },
@@ -359,7 +359,7 @@ def get_portafogli_data():
                             "isin": "IE00BL25JL35",
                             "ter": "0.25%",
                             "tipo_asset": "Azionario Globale Factor Quality",
-                            "allocazione": "25%",
+                            "allocazione": "30%",
                             "descrizione_breve": "Azioni globali selezionate per fattore Quality",
                             "link_info": "https://www.justetf.com/it/etf-profile.html?isin=IE00BL25JL35"
                         },
@@ -368,7 +368,7 @@ def get_portafogli_data():
                             "isin": "JE00BN2CJ301",
                             "ter": "0.12%",
                             "tipo_asset": "Oro Fisico",
-                            "allocazione": "15%",
+                            "allocazione": "10%",
                             "descrizione_breve": "Oro fisico per decorrelazione",
                             "link_info": "https://www.justetf.com/it/etf-profile.html?isin=JE00BN2CJ301"
                         }
