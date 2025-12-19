@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import re
-from pathlib import Path
+from portfolios_data import get_all_portfolios, get_statistics
 
 # Configurazione della pagina
 st.set_page_config(
@@ -58,128 +57,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-def parse_portfolio_data(file_path='/mnt/project/AzionarioPort.txt'):
+def load_portfolios():
     """
-    Parserizza il file AzionarioPort.txt e restituisce una struttura dati organizzata
+    Carica i portafogli dal modulo portfolios_data
+    
+    Returns:
+        dict: Dizionario con i portafogli organizzati per categoria
     """
-    portfolios = {
-        'multi': [],
-        'single': [],
-        'esg': []
-    }
-    
-    current_section = None
-    current_portfolio = None
-    
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        
-        for line in lines:
-            line = line.strip()
-            
-            # Salta righe vuote
-            if not line:
-                continue
-            
-            # Identifica le sezioni
-            if 'Multi Portfolios' in line:
-                current_section = 'multi'
-                continue
-            elif line == 'Single':
-                current_section = 'single'
-                continue
-            elif line == 'ESG':
-                current_section = 'esg'
-                continue
-            
-            # Identifica un nuovo portafoglio
-            if line.startswith('PORT'):
-                # Salva il portafoglio precedente se esiste
-                if current_portfolio:
-                    portfolios[current_section].append(current_portfolio)
-                
-                # Estrai informazioni del portafoglio
-                port_match = re.match(r'(PORT\w+)\s*-?\s*Risk\s*(\d+),?\s*ESG\s*(\d+),?\s*MinDurY\s*([\d.]+[^\s]*)\s*(?:Rebalance\s*(.+))?', line)
-                
-                if port_match:
-                    port_id = port_match.group(1)
-                    risk_level = int(port_match.group(2))
-                    esg = int(port_match.group(3))
-                    min_duration = port_match.group(4)
-                    rebalance = port_match.group(5) if port_match.group(5) else 'N/A'
-                    
-                    current_portfolio = {
-                        'id': port_id,
-                        'risk_level': risk_level,
-                        'esg': esg,
-                        'min_duration': min_duration,
-                        'rebalance': rebalance,
-                        'components': [],
-                        'note': ''
-                    }
-            
-            # Identifica componenti del portafoglio
-            elif current_portfolio is not None:
-                # Controlla se è una nota
-                if line.startswith('('):
-                    current_portfolio['note'] = line
-                    continue
-                
-                # Prova a parsare come componente ETF
-                # Formato: percentuale% Nome ETF ISIN TER
-                component_match = re.match(r'(\d+)%\s+(.+?)\s+([A-Z]{2}\d+[A-Z0-9]+)\s+([\d,]+)', line)
-                
-                if component_match:
-                    percentage = component_match.group(1)
-                    etf_name = component_match.group(2).strip()
-                    isin = component_match.group(3)
-                    ter = component_match.group(4).replace(',', '.')
-                    
-                    current_portfolio['components'].append({
-                        'percentage': percentage,
-                        'name': etf_name,
-                        'isin': isin,
-                        'ter': ter
-                    })
-                
-                # Caso speciale per portafogli single senza percentuale
-                elif not component_match and current_section in ['single', 'esg']:
-                    single_match = re.match(r'(.+?)\s+([A-Z]{2}\d+[A-Z0-9]+)\s+([\d,]+)', line)
-                    if single_match:
-                        etf_name = single_match.group(1).strip()
-                        isin = single_match.group(2)
-                        ter = single_match.group(3).replace(',', '.')
-                        
-                        current_portfolio['components'].append({
-                            'percentage': '100',
-                            'name': etf_name,
-                            'isin': isin,
-                            'ter': ter
-                        })
-                    else:
-                        # Formato alternato: Nome TER ISIN
-                        alt_match = re.match(r'(.+?)\s+([\d,]+)\s+([A-Z]{2}\d+[A-Z0-9]+)', line)
-                        if alt_match:
-                            etf_name = alt_match.group(1).strip()
-                            ter = alt_match.group(2).replace(',', '.')
-                            isin = alt_match.group(3)
-                            
-                            current_portfolio['components'].append({
-                                'percentage': '100',
-                                'name': etf_name,
-                                'isin': isin,
-                                'ter': ter
-                            })
-        
-        # Aggiungi l'ultimo portafoglio
-        if current_portfolio:
-            portfolios[current_section].append(current_portfolio)
-        
+        portfolios = get_all_portfolios()
+        stats = get_statistics()
+        st.success(f"✅ Caricati **{stats['total_portfolios']} portafogli** con successo! ({stats['unique_etfs']} ETF unici)")
+        return portfolios
     except Exception as e:
-        st.error(f"Errore nel parsing del file: {str(e)}")
-    
-    return portfolios
+        st.error(f"❌ Errore nel caricamento dei dati: {str(e)}")
+        return {'multi': [], 'single': [], 'esg': []}
 
 
 def get_risk_category(risk_level):
@@ -294,7 +186,21 @@ def main():
     st.divider()
     
     # Carica i dati
-    portfolios = parse_portfolio_data()
+    portfolios = load_portfolios()
+    
+    # Controlla se ci sono portafogli caricati
+    total_portfolios = sum(len(portfolios[section]) for section in portfolios)
+    
+    if total_portfolios == 0:
+        st.error("""
+        ### ❌ Nessun portafoglio caricato
+        
+        L'applicazione non ha potuto caricare i dati dei portafogli.
+        Verifica che il file `portfolios_data.py` sia presente nella stessa directory di `app.py`.
+        """)
+        return
+    
+    # Non serve più mostrare il messaggio di successo qui perché lo fa già load_portfolios()
     
     # Sidebar per la navigazione
     st.sidebar.title("🧭 Navigazione")
@@ -637,9 +543,9 @@ def display_footer():
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: gray;'>
-        <p><strong>Portfolio ETF Explorer</strong> | Versione 2.0 | Dicembre 2025</p>
+        <p><strong>Portfolio ETF Explorer</strong> | Versione 2.1 | Dicembre 2025</p>
         <p><small>Applicazione educativa - Non costituisce consulenza finanziaria</small></p>
-        <p><small>Dati estratti da AzionarioPort.txt - Verifica sempre presso fonti ufficiali</small></p>
+        <p><small>Dati da portfolios_data.py - Verifica sempre presso fonti ufficiali</small></p>
     </div>
     """, unsafe_allow_html=True)
 
