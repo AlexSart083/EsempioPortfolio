@@ -1,0 +1,125 @@
+Multi Portfolios
+
+PORT2a - Risk 2, ESG 0, MinDurY 5Â Rebalance 1y
+10% SPDR MSCI World UCITS ETF IE00BFY0GT14 0,12
+10% Xtrackers MSCI World Minimum Volatility UCITS ETF 1C IE00BL25JN58 0,25
+10% WisdomTree Core Physical Gold JE00BN2CJ301 0,12
+20% Amundi Smart Overnight Return UCITS ETF Acc LU1190417599 0,10
+30% iShares EUR Corporate Bond 0-3yr ESG SRI UCITS ETF EUR (Acc) IE000AK4O3W6 0,12
+10% iShares Euro Inflation Linked Government Bond UCITS ETF IE00B0M62X26 0,09
+10% iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc) IE000NVM56L3 0,1
+
+PORT2b - Risk 2, ESG 0, MinDurY 7Â Rebalance 1y
+15% Xtrackers MSCI World Minimum Volatility UCITS ETF 1C IE00BL25JN58 0,25
+15% Xtrackers MSCI World Quality UCITS ETF 1C IE00BL25JL35 0,25
+10% WisdomTree Core Physical Gold JE00BN2CJ301 0,12
+15% Amundi Smart Overnight Return UCITS ETF Acc LU1190417599 0,10
+15% iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc) IE000F6G1DE0 0,2
+15% iShares EUR Inflation Linked Government Bond UCITS ETF IE00B0M62X26 0,09
+15% iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc) IE000NVM56L3 0,1
+
+PORT3 - Risk 3, ESG 0, MinDurY 10Â Rebalance 1y
+20% SPDR MSCI World UCITS ETF IE00BFY0GT14 0,12 
+20% Xtrackers MSCI World Quality UCITS ETF 1C IE00BL25JL35 0,25
+10% WisdomTree Core Physical Gold JE00BN2CJ301 0,12
+10% iShares Euro Government Bond 3-5yr UCITS ETF IE00B1FZS681 0,15
+15% iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc) IE000F6G1DE0 0,2
+10% iShares Euro Inflation Linked Government Bond UCITS ETF IE00B0M62X26 0,09
+15% iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc) IE000NVM56L3 0,1
+
+PORT5 - Risk 5, ESG 0, MinDurY 10Â Rebalance 1y
+60% Vanguard FTSE All-World UCITS ETF (USD) Accumulating IE00BK5BQT80 0,19
+10% iShares Euro Inflation Linked Government Bond UCITS ETF IE00B0M62X26 0,09
+10% iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc) IE000NVM56L3 0,1
+20% iShares Euro Government Bond 3-5yr UCITS ETF IE00B1FZS681 0,15
+
+PORT6a - Risk 5, ESG 0, MinDurY 10Â Rebalance 1y
+70% Amundi Prime All Country World UCITS IE0003XJA0J9 0,07
+10% Xtrackers MSCI World UCITS ETF 2C - EUR Hedged IE000ONQ3X90 0,17 
+10%Â WisdomTree Core Physical Gold JE00BN2CJ301 0,12
+10% iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc) IE000F6G1DE0 0,2
+
+PORT6b - Risk 6, ESG 0, MinDurY 10Â Rebalance 1y
+80% Amundi Prime All Country World UCITS IE0003XJA0J9 0,07
+5% iShares Core MSCI Emerging Markets IMI UCITS ETF (Acc) IE00BKM4GZ66 0,18
+15%Â WisdomTree Core Physical Gold JE00BN2CJ301 0,12
+
+PORT7a - Risk 7, ESG 0, MinDurY 10 Â Rebalance 1y
+60% SPDR MSCI World UCITS ETF IE00BFY0GT14 0,12
+20% iShares Edge MSCI World Momentum Factor UCITS ETF (Acc) IE00BP3QZ825 0,25
+20%Â iShares Edge MSCI World Value Factor UCITS ETF IE00BP3QZB59 0,25
+
+PORT7b - Risk 7, ESG 0, MinDurY 10 Â Rebalance 1Y
+40% Vanguard S&P 500 UCITS ETF (USD) Accumulating IE00BFMXXD54 0,07
+45% Xtrackers MSCI World ex USA UCITS ETF 1C IE0006WW1TQ4 0,15
+15%Â iShares Core MSCI Emerging Markets IMI UCITS ETF (Acc) IE00BKM4GZ66 0,18
+
+PORT8 - Risk 8, ESG 0, MinDurY 10 Rebalance 3M
+50% SPDR MSCI World UCITS ETF IE00BFY0GT14 0,12
+50%Â Amundi MSCI World (2x) Leveraged UCITS ETF Acc FR0014010HV4 0,6 
+
+Single
+PORT11aÂ - Risk 1, ESG 0, MinDurY 1..xxÂ Rebalance NO 
+Amundi Smart Overnight Return UCITS ETF Acc LU1190417599 0,1
+
+PORT11b - Risk 1, ESG 1, MinDurY 1...9Â (Only one of the following ETF depend on user needs)
+iShares iBonds Dec 2034 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000UY6XF65
+iShares iBonds Dec 2033 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000ZBGZQM8
+iShares iBonds Dec 2032 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000I660ZF8
+iShares iBonds Dec 2031 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000D9WMGF0
+iShares iBonds Dec 2030 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000Y2BJVK9
+iShares iBonds Dec 2029 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000SNLFDR7
+iShares iBonds Dec 2028 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE0008UEVOE0
+iShares iBonds Dec 2027 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000ZOI8OK5
+iShares iBonds Dec 2026 Term EUR Corporate UCITS ETF EUR (Acc) 0,12 IE000WA6L436
+
+PORT13- Risk 3, ESG 0, MinDurY 7Â  
+Vanguard LifeStrategy 40% Equity UCITS ETF Accumulating IE00BMVB5M21 0,25%
+
+PORT15 Risk 5 ESG 0, MinDurY 10Â 
+Vanguard LifeStrategy 60% Equity UCITS ETF Accumulating IE00BMVB5P51 0,25%
+
+PORT16 Risk 6 ESG 0, MinDurY 10Â 
+Vanguard LifeStrategy 80% Equity UCITS ETF Accumulating IE00BMVB5R75 0,25%
+
+PORT17a Risk 7 ESG 0, MinDurY 10
+Amundi Prime All Country World UCITS IE0003XJA0J9 0,07
+
+PORT17b Risk 7 ESG 0, MinDurY 10
+SPDR MSCI World UCITS ETF IE00BFY0GT14 0,12
+
+
+ESG
+
+PORT21aÂ - Risk 1, ESG 1, MinDurY 1..xxÂ Rebalance NO 
+Amundi Floating Rate Euro Corporate ESG UCITS ETF EUR (C) 0,18
+
+
+PORT22a Risk 2 ESG 1, MinDurY 7
+30% iShares MSCI World ESG Enhanced CTB UCITS ETF USD (Acc) 0,2
+10% PIMCO Euro Short Maturity UCITS ETF Acc IE00BVZ6SP04 0,19
+30% Amundi Index Euro Corporate SRI 0-3 Y UCITS ETF DR (C)
+40% Amundi Floating Rate Euro Corporate ESG UCITS ETF EUR (C) 0,18
+
+PORT23a Risk 3 ESG 1, MinDurY 10
+40% iShares MSCI World ESG Enhanced CTB UCITS ETF USD (Acc) 0,2
+20% Amundi Index Euro Corporate SRI 0-3 Y UCITS ETF DR (C) 0,12
+20% Amundi Floating Rate Euro Corporate ESG UCITS ETF EUR (C) 0,18
+20% BNP Paribas Easy JPM ESG EMU Government Bond IG 3-5Y UCITS ETF LU2244387457 0,15
+
+PORT25a Risk 5 ESG 1, MinDurY 10
+60% iShares MSCI World ESG Enhanced CTB UCITS ETF USD (Acc) 0,2
+10% Amundi Index Euro Corporate SRI 0-3 Y UCITS ETF DR (C) 0,12
+10% Amundi Floating Rate Euro Corporate ESG UCITS ETF EUR (C) 0,18
+20% BNP Paribas Easy JPM ESG EMU Government Bond IG 3-5Y UCITS ETF LU2244387457 0,15
+
+PORT26 Risk 5 ESG 1, MinDurY 10
+80% iShares MSCI World ESG Enhanced CTB UCITS ETF USD (Acc) 0,2
+10% Amundi Index Euro Corporate SRI 0-3 Y UCITS ETF DR (C) 0,12
+10% Amundi Floating Rate Euro Corporate ESG UCITS ETF EUR (C) 0,18
+
+PORT27 Risk 7 ESG 0, MinDurY 10
+iShares MSCI World ESG Enhanced CTB UCITS ETF USD (Acc) 0,2
+
+PORT27b Risk 7 ESG 0, MinDurY 10
+Vanguard ESG Global All Cap UCITS ETF (USD) Accumulating IE00BNG8L278 0,24
