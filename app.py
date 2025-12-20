@@ -176,6 +176,8 @@ def portfolio_wizard(portfolios):
     Questo strumento ti aiuterà a restringere le opzioni in base al tuo profilo di investitore.
     """)
     
+    st.info("📝 Il questionario richiede circa 3-4 minuti. Più sei preciso nelle risposte, migliore sarà il risultato!")
+    
     st.divider()
     
     # Inizializza session state per il wizard
@@ -183,18 +185,54 @@ def portfolio_wizard(portfolios):
         st.session_state.wizard_completed = False
         st.session_state.wizard_results = None
     
-    # Step 1: Orizzonte Temporale
-    st.subheader("⏰ Passo 1: Orizzonte Temporale")
+    # Step 1: Età/Fase della Vita
+    st.subheader("👤 Passo 1: Età e Fase della Vita")
+    st.markdown("**In quale fascia d'età ti trovi?**")
+    
+    age_range = st.radio(
+        "Seleziona la tua età:",
+        [
+            "Meno di 30 anni - Inizio carriera",
+            "30-45 anni - Consolidamento professionale",
+            "45-60 anni - Picco carriera, pre-pensione",
+            "Più di 60 anni - Pensione o vicino alla pensione"
+        ],
+        index=None,
+        help="L'età influenza sia l'orizzonte temporale che la tolleranza al rischio appropriata"
+    )
+    
+    st.divider()
+    
+    # Step 2: Capitale Iniziale
+    st.subheader("💰 Passo 2: Capitale da Investire")
+    st.markdown("**Quanto pensi di investire inizialmente?**")
+    
+    initial_capital = st.radio(
+        "Seleziona la fascia:",
+        [
+            "Meno di 5.000€",
+            "5.000€ - 20.000€",
+            "20.000€ - 50.000€",
+            "Più di 50.000€"
+        ],
+        index=None,
+        help="Il capitale influenza le scelte di diversificazione e i costi di transazione"
+    )
+    
+    st.divider()
+    
+    # Step 3: Orizzonte Temporale
+    st.subheader("⏰ Passo 3: Orizzonte Temporale")
     st.markdown("**Quando prevedi di aver bisogno di questi soldi?**")
     
     time_horizon = st.radio(
         "Seleziona l'orizzonte:",
         [
-            "Meno di 3 anni",
-            "3-7 anni",
-            "7-10 anni",
-            "Più di 10 anni",
-            "15+ anni (lungo termine)"
+            "Meno di 3 anni - Breve termine",
+            "3-7 anni - Medio termine",
+            "7-10 anni - Medio-lungo termine",
+            "10-15 anni - Lungo termine",
+            "Più di 15 anni - Molto lungo termine"
         ],
         index=None,
         help="L'orizzonte temporale è fondamentale per determinare il livello di rischio appropriato"
@@ -202,16 +240,53 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 2: Esperienza
-    st.subheader("💼 Passo 2: Esperienza con gli Investimenti")
+    # Step 4: Obiettivo Investimento
+    st.subheader("🎯 Passo 4: Obiettivo dell'Investimento")
+    st.markdown("**Qual è il tuo obiettivo principale con questo investimento?**")
+    
+    investment_goal = st.radio(
+        "Seleziona l'obiettivo:",
+        [
+            "Pensione - Costruire capitale per il futuro",
+            "Grande acquisto - Casa, auto, educazione figli",
+            "Crescita patrimonio - Aumentare il capitale nel tempo",
+            "Preservazione capitale - Proteggere dall'inflazione",
+            "Libertà finanziaria - Rendita passiva"
+        ],
+        index=None,
+        help="L'obiettivo aiuta a determinare il profilo rischio/rendimento appropriato"
+    )
+    
+    st.divider()
+    
+    # Step 5: Percentuale Patrimonio
+    st.subheader("💼 Passo 5: Peso nel Tuo Patrimonio")
+    st.markdown("**Questo investimento rappresenta che percentuale del tuo patrimonio totale?**")
+    
+    portfolio_percentage = st.radio(
+        "Seleziona la proporzione:",
+        [
+            "Tutto o quasi tutto (80-100%)",
+            "Parte maggiore (50-80%)",
+            "Parte significativa (20-50%)",
+            "Parte minore (meno del 20%)"
+        ],
+        index=None,
+        help="Se rappresenta tutto il tuo patrimonio, servono scelte più prudenti"
+    )
+    
+    st.divider()
+    
+    # Step 6: Esperienza
+    st.subheader("📚 Passo 6: Esperienza con gli Investimenti")
     st.markdown("**Quanto sei familiare con gli investimenti in ETF?**")
     
     experience = st.radio(
         "Seleziona il tuo livello:",
         [
-            "Principiante - È la mia prima volta",
-            "Base - Ho qualche conoscenza teorica",
-            "Intermedio - Ho già investito in ETF",
+            "Principiante - È la mia prima volta con investimenti",
+            "Base - Ho letto e studiato, ma poca pratica",
+            "Intermedio - Ho già investito in ETF o fondi",
             "Esperto - Investo regolarmente e comprendo i mercati"
         ],
         index=None,
@@ -220,18 +295,18 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 3: Tolleranza al Rischio
-    st.subheader("⚖️ Passo 3: Tolleranza al Rischio")
+    # Step 7: Tolleranza al Rischio Emotiva
+    st.subheader("⚖️ Passo 7: Tolleranza al Rischio")
     st.markdown("**Come reagiresti se il tuo investimento perdesse il 30% in un anno?**")
     
     risk_tolerance = st.radio(
         "Seleziona la risposta più vicina al tuo comportamento:",
         [
-            "😰 Venderei immediatamente per evitare ulteriori perdite",
-            "😟 Sarei molto preoccupato e considererei di vendere",
-            "😐 Sarei preoccupato ma probabilmente manterrei l'investimento",
-            "😊 Lo vedrei come un'opportunità per comprare a prezzi più bassi",
-            "🚀 Investirei di più per approfittare dei prezzi bassi"
+            "😰 Venderei immediatamente - Non sopporto le perdite",
+            "😟 Sarei molto preoccupato - Probabilmente venderei",
+            "😐 Sarei preoccupato ma manterrei - Capisco la volatilità",
+            "😊 Lo vedrei come opportunità - Comprerei di più se possibile",
+            "🚀 Sono tranquillo - È normale, compro ancora"
         ],
         index=None,
         help="La tolleranza al rischio è soggettiva - sii onesto con te stesso"
@@ -239,16 +314,34 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 4: Preferenza ESG
-    st.subheader("🌱 Passo 4: Investimenti Sostenibili")
+    # Step 8: Reddito e Stabilità
+    st.subheader("💵 Passo 8: Situazione Reddituale")
+    st.markdown("**Come descriveresti il tuo reddito e la tua stabilità lavorativa?**")
+    
+    income_stability = st.radio(
+        "Seleziona la tua situazione:",
+        [
+            "Reddito stabile e sicuro - Posso investire regolarmente",
+            "Reddito variabile - Preferisco flessibilità",
+            "Reddito incerto - Potrei aver bisogno dei soldi",
+            "Pensionato/a - Vivo di rendite o pensione"
+        ],
+        index=None,
+        help="La stabilità del reddito influenza quanto rischio puoi permetterti"
+    )
+    
+    st.divider()
+    
+    # Step 9: Preferenza ESG
+    st.subheader("🌱 Passo 9: Investimenti Sostenibili")
     st.markdown("**Ti interessa investire secondo criteri ESG (ambientali, sociali, governance)?**")
     
     esg_preference = st.radio(
         "Seleziona la tua preferenza:",
         [
-            "Sì, voglio solo portafogli ESG",
-            "Mi interessa, ma non è prioritario",
-            "No, non è importante per me"
+            "Sì, voglio solo portafogli ESG - È una priorità",
+            "Mi interessa ma non è essenziale - Bonus se disponibile",
+            "No, non è importante - Focus solo su rendimento/rischio"
         ],
         index=None,
         help="I portafogli ESG investono in aziende con migliori pratiche ambientali e sociali"
@@ -256,16 +349,17 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 5: Complessità
-    st.subheader("🔧 Passo 5: Complessità e Gestione")
+    # Step 10: Complessità
+    st.subheader("🔧 Passo 10: Tempo e Complessità")
     st.markdown("**Quanto tempo vuoi dedicare alla gestione del portafoglio?**")
     
     complexity = st.radio(
         "Seleziona la tua disponibilità:",
         [
-            "Zero - Voglio un investimento completamente automatico",
-            "Minima - Al massimo una revisione annuale",
-            "Moderata - Posso dedicare qualche ora ogni 3-6 mesi"
+            "Zero - Voglio investire e dimenticare (set & forget)",
+            "Minima - Al massimo un controllo annuale",
+            "Moderata - Posso ribilanciare ogni 3-6 mesi se necessario",
+            "Alta - Mi piace monitorare e gestire attivamente"
         ],
         index=None,
         help="I portafogli single ETF non richiedono ribilanciamento"
@@ -275,13 +369,19 @@ def portfolio_wizard(portfolios):
     
     # Bottone per calcolare risultati
     if st.button("🎯 Trova i Miei Portafogli Ideali", type="primary", use_container_width=True):
-        if all([time_horizon, experience, risk_tolerance, esg_preference, complexity]):
+        if all([age_range, initial_capital, time_horizon, investment_goal, portfolio_percentage, 
+                experience, risk_tolerance, income_stability, esg_preference, complexity]):
             # Calcola i suggerimenti
             results = calculate_recommendations(
                 portfolios,
+                age_range,
+                initial_capital,
                 time_horizon,
+                investment_goal,
+                portfolio_percentage,
                 experience,
                 risk_tolerance,
+                income_stability,
                 esg_preference,
                 complexity
             )
@@ -303,57 +403,126 @@ def portfolio_wizard(portfolios):
             st.rerun()
 
 
-def calculate_recommendations(portfolios, time_horizon, experience, risk_tolerance, esg_preference, complexity):
+def calculate_recommendations(portfolios, age_range, initial_capital, time_horizon, investment_goal, 
+                             portfolio_percentage, experience, risk_tolerance, income_stability, 
+                             esg_preference, complexity):
     """Calcola i portafogli raccomandati in base alle risposte del wizard"""
     
-    # Determina il livello di rischio basato su orizzonte temporale e tolleranza
-    risk_mapping = {
-        "Meno di 3 anni": [1, 2],
-        "3-7 anni": [2, 3],
-        "7-10 anni": [3, 4, 5],
-        "Più di 10 anni": [4, 5, 6],
-        "15+ anni (lungo termine)": [5, 6, 7, 8]
+    # STEP 1: Determina livello di rischio base
+    
+    # Mapping età → influenza rischio base
+    age_risk_modifier = {
+        "Meno di 30 anni - Inizio carriera": +1,
+        "30-45 anni - Consolidamento professionale": 0,
+        "45-60 anni - Picco carriera, pre-pensione": -1,
+        "Più di 60 anni - Pensione o vicino alla pensione": -2
     }
     
+    # Mapping orizzonte temporale → range di rischio base
+    time_risk_mapping = {
+        "Meno di 3 anni - Breve termine": [1, 2],
+        "3-7 anni - Medio termine": [2, 3],
+        "7-10 anni - Medio-lungo termine": [3, 4, 5],
+        "10-15 anni - Lungo termine": [4, 5, 6],
+        "Più di 15 anni - Molto lungo termine": [5, 6, 7]  # Escluso 8!
+    }
+    
+    # Mapping obiettivo → preferenza rischio
+    goal_risk_modifier = {
+        "Pensione - Costruire capitale per il futuro": 0,
+        "Grande acquisto - Casa, auto, educazione figli": -1,
+        "Crescita patrimonio - Aumentare il capitale nel tempo": +1,
+        "Preservazione capitale - Proteggere dall'inflazione": -2,
+        "Libertà finanziaria - Rendita passiva": 0
+    }
+    
+    # Mapping percentuale patrimonio → prudenza
+    wealth_risk_modifier = {
+        "Tutto o quasi tutto (80-100%)": -2,  # Molto prudente
+        "Parte maggiore (50-80%)": -1,
+        "Parte significativa (20-50%)": 0,
+        "Parte minore (meno del 20%)": +1  # Può rischiare di più
+    }
+    
+    # Mapping tolleranza emotiva → aggiustamento rischio
     tolerance_adjustment = {
-        "😰 Venderei immediatamente per evitare ulteriori perdite": -2,
-        "😟 Sarei molto preoccupato e considererei di vendere": -1,
-        "😐 Sarei preoccupato ma probabilmente manterrei l'investimento": 0,
-        "😊 Lo vedrei come un'opportunità per comprare a prezzi più bassi": 1,
-        "🚀 Investirei di più per approfittare dei prezzi bassi": 2
+        "😰 Venderei immediatamente - Non sopporto le perdite": -2,
+        "😟 Sarei molto preoccupato - Probabilmente venderei": -1,
+        "😐 Sarei preoccupato ma manterrei - Capisco la volatilità": 0,
+        "😊 Lo vedrei come opportunità - Comprerei di più se possibile": +1,
+        "🚀 Sono tranquillo - È normale, compro ancora": +1  # Max +1 per sicurezza
     }
     
-    # Livelli di rischio base
-    base_risks = risk_mapping.get(time_horizon, [3, 4, 5])
-    adjustment = tolerance_adjustment.get(risk_tolerance, 0)
+    # Mapping stabilità reddito → prudenza
+    income_risk_modifier = {
+        "Reddito stabile e sicuro - Posso investire regolarmente": +1,
+        "Reddito variabile - Preferisco flessibilità": 0,
+        "Reddito incerto - Potrei aver bisogno dei soldi": -2,
+        "Pensionato/a - Vivo di rendite o pensione": -1
+    }
     
-    # Applica aggiustamento
+    # Calcola rischio base dall'orizzonte temporale
+    base_risks = time_risk_mapping.get(time_horizon, [3, 4, 5])
+    
+    # Applica tutti i modificatori
+    total_adjustment = (
+        age_risk_modifier.get(age_range, 0) +
+        goal_risk_modifier.get(investment_goal, 0) +
+        wealth_risk_modifier.get(portfolio_percentage, 0) +
+        tolerance_adjustment.get(risk_tolerance, 0) +
+        income_risk_modifier.get(income_stability, 0)
+    )
+    
+    # Applica aggiustamento al range
     recommended_risks = []
     for risk in base_risks:
-        adjusted = risk + adjustment
-        adjusted = max(1, min(8, adjusted))  # Limita tra 1 e 8
+        adjusted = risk + total_adjustment
+        adjusted = max(1, min(7, adjusted))  # IMPORTANTE: Max 7, non 8!
         recommended_risks.append(adjusted)
     
     # Rimuovi duplicati e ordina
     recommended_risks = sorted(set(recommended_risks))
     
+    # STEP 2: Determina preferenze di complessità
+    
+    # Capitale → influenza su single vs multi
+    capital_preference = {
+        "Meno di 5.000€": "single",  # Con poco capitale meglio single
+        "5.000€ - 20.000€": "flexible",
+        "20.000€ - 50.000€": "flexible",
+        "Più di 50.000€": "multi_ok"  # Con molto capitale può diversificare
+    }
+    
+    capital_pref = capital_preference.get(initial_capital, "flexible")
+    
     # Determina preferenza single/multi
-    single_only = complexity == "Zero - Voglio un investimento completamente automatico"
-    prefer_single = complexity in ["Zero - Voglio un investimento completamente automatico", 
-                                    "Minima - Al massimo una revisione annuale"]
+    single_only = (
+        complexity == "Zero - Voglio investire e dimenticare (set & forget)" or
+        capital_pref == "single"
+    )
     
-    # Determina preferenza ESG
-    esg_only = esg_preference == "Sì, voglio solo portafogli ESG"
-    prefer_esg = esg_preference == "Mi interessa, ma non è prioritario"
+    prefer_single = (
+        complexity in ["Zero - Voglio investire e dimenticare (set & forget)", 
+                      "Minima - Al massimo un controllo annuale"] or
+        capital_pref == "single"
+    )
     
-    # Determina complessità massima basata su esperienza
+    # STEP 3: Determina preferenza ESG
+    
+    esg_only = esg_preference == "Sì, voglio solo portafogli ESG - È una priorità"
+    prefer_esg = esg_preference == "Mi interessa ma non è essenziale - Bonus se disponibile"
+    
+    # STEP 4: Determina complessità massima basata su esperienza
+    
     max_components = {
-        "Principiante - È la mia prima volta": 1,
-        "Base - Ho qualche conoscenza teorica": 4,
-        "Intermedio - Ho già investito in ETF": 7,
+        "Principiante - È la mia prima volta con investimenti": 1,
+        "Base - Ho letto e studiato, ma poca pratica": 3,
+        "Intermedio - Ho già investito in ETF o fondi": 6,
         "Esperto - Investo regolarmente e comprendo i mercati": 10
     }
-    max_etfs = max_components.get(experience, 4)
+    max_etfs = max_components.get(experience, 3)
+    
+    # STEP 5: Filtra e punteggia i portafogli
     
     # Raccogli tutti i portafogli
     all_portfolios = []
@@ -363,6 +532,10 @@ def calculate_recommendations(portfolios, time_horizon, experience, risk_toleran
     # Filtra i portafogli
     candidates = []
     for portfolio in all_portfolios:
+        # FILTRO CRITICO: Escludi sempre rischio 8
+        if portfolio['risk_level'] == 8:
+            continue
+        
         # Filtro rischio
         if portfolio['risk_level'] not in recommended_risks:
             continue
@@ -379,26 +552,53 @@ def calculate_recommendations(portfolios, time_horizon, experience, risk_toleran
         if single_only and len(portfolio['components']) > 1:
             continue
         
-        # Calcola score
+        # CALCOLA SCORE
         score = 0
         
-        # Preferenza single
+        # Bonus per preferenza single
         if prefer_single and len(portfolio['components']) == 1:
+            score += 12
+        
+        # Bonus per ESG
+        if prefer_esg and portfolio['esg'] == 1:
+            score += 6
+        
+        # Bonus forte per ESG only
+        if esg_only and portfolio['esg'] == 1:
             score += 10
         
-        # Preferenza ESG
-        if prefer_esg and portfolio['esg'] == 1:
-            score += 5
-        
-        # Preferenza per nessun ribilanciamento
-        if complexity == "Zero - Voglio un investimento completamente automatico":
+        # Bonus per nessun ribilanciamento
+        if complexity in ["Zero - Voglio investire e dimenticare (set & forget)", 
+                         "Minima - Al massimo un controllo annuale"]:
             if portfolio['rebalance'] == 'NO':
-                score += 15
+                score += 18
         
-        # Vicinanza al rischio ideale (il rischio centrale del range)
-        ideal_risk = recommended_risks[len(recommended_risks)//2] if recommended_risks else 5
+        # Bonus moderato per ribilanciamento annuale
+        if complexity == "Moderata - Posso ribilanciare ogni 3-6 mesi se necessario":
+            if portfolio['rebalance'] in ['NO', '1y']:
+                score += 8
+        
+        # Bonus per portafogli semplici con poco capitale
+        if capital_pref == "single" and len(portfolio['components']) == 1:
+            score += 10
+        
+        # Penalità per portafogli troppo semplici con molto capitale
+        if capital_pref == "multi_ok" and len(portfolio['components']) == 1:
+            score -= 3
+        
+        # Bonus per match con obiettivo
+        if investment_goal == "Preservazione capitale - Proteggere dall'inflazione":
+            if portfolio['risk_level'] <= 3:
+                score += 8
+        
+        if investment_goal == "Crescita patrimonio - Aumentare il capitale nel tempo":
+            if portfolio['risk_level'] >= 5:
+                score += 8
+        
+        # Vicinanza al rischio ideale
+        ideal_risk = recommended_risks[len(recommended_risks)//2] if recommended_risks else 4
         risk_distance = abs(portfolio['risk_level'] - ideal_risk)
-        score -= risk_distance * 2
+        score -= risk_distance * 3  # Penalità maggiore per distanza dal rischio ideale
         
         candidates.append({
             'portfolio': portfolio,
@@ -415,14 +615,20 @@ def calculate_recommendations(portfolios, time_horizon, experience, risk_toleran
         'portfolios': top_portfolios,
         'recommended_risks': recommended_risks,
         'criteria': {
+            'age_range': age_range,
+            'initial_capital': initial_capital,
             'time_horizon': time_horizon,
+            'investment_goal': investment_goal,
+            'portfolio_percentage': portfolio_percentage,
             'experience': experience,
             'risk_tolerance': risk_tolerance,
+            'income_stability': income_stability,
             'esg_preference': esg_preference,
             'complexity': complexity,
             'single_only': single_only,
             'esg_only': esg_only,
-            'max_etfs': max_etfs
+            'max_etfs': max_etfs,
+            'capital_pref': capital_pref
         }
     }
 
@@ -440,24 +646,33 @@ def display_wizard_results(results, all_portfolios):
         
         with col1:
             st.markdown(f"""
-            **Profilo Temporale:**
+            **👤 Profilo Personale:**
+            - Età: {criteria['age_range']}
+            - Capitale: {criteria['initial_capital']}
+            - Patrimonio: {criteria['portfolio_percentage']}
+            
+            **⏰ Profilo Temporale:**
             - Orizzonte: {criteria['time_horizon']}
+            - Obiettivo: {criteria['investment_goal']}
             
-            **Profilo di Rischio:**
-            - Tolleranza: {criteria['risk_tolerance']}
-            - Livelli suggeriti: {', '.join(map(str, results['recommended_risks']))}
-            
-            **Esperienza:**
-            - Livello: {criteria['experience']}
-            - Max ETF: {criteria['max_etfs']}
+            **⚖️ Profilo di Rischio:**
+            - Tolleranza emotiva: {criteria['risk_tolerance']}
+            - Stabilità reddito: {criteria['income_stability']}
+            - **Livelli rischio suggeriti: {', '.join(map(str, results['recommended_risks']))}**
             """)
         
         with col2:
             st.markdown(f"""
-            **Preferenze:**
+            **📚 Esperienza e Preferenze:**
+            - Livello: {criteria['experience']}
+            - Max ETF per portafoglio: {criteria['max_etfs']}
+            - Preferenza capitale: {criteria['capital_pref']}
+            
+            **🎯 Scelte Operative:**
             - ESG: {criteria['esg_preference']}
-            - Gestione: {criteria['complexity']}
+            - Tempo gestione: {criteria['complexity']}
             - Solo Single ETF: {'Sì' if criteria['single_only'] else 'No'}
+            - Solo ESG: {'Sì' if criteria['esg_only'] else 'No'}
             """)
     
     st.divider()
@@ -467,25 +682,52 @@ def display_wizard_results(results, all_portfolios):
         st.subheader("🎯 I Tuoi Portafogli Consigliati")
         
         for idx, portfolio in enumerate(results['portfolios'], 1):
-            st.markdown(f"### 🏆 Raccomandazione #{idx}")
+            # Emoji per il ranking
+            if idx == 1:
+                emoji = "🏆"
+                medal = "Prima Scelta"
+            elif idx == 2:
+                emoji = "🥈"
+                medal = "Alternativa Valida"
+            else:
+                emoji = "🥉"
+                medal = "Opzione Aggiuntiva"
+            
+            st.markdown(f"### {emoji} {medal} - {portfolio['id']}")
             
             # Spiega perché è stato raccomandato
             reasons = []
             
             if len(portfolio['components']) == 1:
-                reasons.append("✅ **Semplicità massima** - Un solo ETF, nessun ribilanciamento")
+                reasons.append("✅ **Semplicità massima** - Un solo ETF, gestione minima")
             
             if portfolio['esg'] == 1:
                 reasons.append("🌱 **ESG compliant** - Investe secondo criteri sostenibili")
             
             if portfolio['rebalance'] == 'NO':
                 reasons.append("⏰ **Zero manutenzione** - Non richiede ribilanciamento")
+            elif portfolio['rebalance'] == '1y':
+                reasons.append("📅 **Manutenzione annuale** - Ribilanciamento una volta l'anno")
             
             if portfolio['risk_level'] in results['recommended_risks']:
-                reasons.append(f"⚖️ **Rischio appropriato** - Livello {portfolio['risk_level']} adatto al tuo profilo")
+                risk_cat = get_risk_category(portfolio['risk_level'])
+                reasons.append(f"⚖️ **Rischio appropriato** - Livello {portfolio['risk_level']} ({risk_cat}) adatto al tuo profilo")
             
-            if len(portfolio['components']) <= 4:
+            if len(portfolio['components']) <= 3:
                 reasons.append("📊 **Facile da gestire** - Numero limitato di componenti")
+            
+            # Calcola TER medio
+            if len(portfolio['components']) > 1:
+                ter_medio = sum(
+                    float(comp['ter']) * float(comp['percentage']) / 100
+                    for comp in portfolio['components']
+                )
+                if ter_medio <= 0.15:
+                    reasons.append(f"💰 **Costi bassi** - TER medio {ter_medio:.2f}%")
+            else:
+                ter_single = float(portfolio['components'][0]['ter'])
+                if ter_single <= 0.15:
+                    reasons.append(f"💰 **Costi bassi** - TER {ter_single}%")
             
             if reasons:
                 st.markdown("**Perché questo portafoglio:**")
@@ -505,17 +747,51 @@ def display_wizard_results(results, all_portfolios):
         Non ho trovato portafogli che corrispondono esattamente ai tuoi criteri. 
         Prova a:
         - Modificare le tue preferenze nel questionario
-        - Esplorare manualmente i portafogli disponibili
+        - Esplorare manualmente i portafogli disponibili usando "Esplora Liberamente"
         - Considerare portafogli con criteri leggermente diversi
+        
+        Ricorda: il rischio 8 (con leverage) è stato escluso per sicurezza.
         """)
     
-    # Suggerimento finale
-    st.info("""
-    💡 **Prossimi passi:**
-    1. Studia attentamente i portafogli raccomandati
-    2. Clicca sui link JustETF per approfondire ogni ETF
-    3. Confronta i costi (TER) e le caratteristiche
-    4. Consulta un professionista prima di investire
+    # Suggerimento finale personalizzato
+    criteria = results['criteria']
+    
+    # Crea suggerimenti personalizzati
+    tips = []
+    
+    if criteria['single_only']:
+        tips.append("📌 **Single ETF:** Perfetto per iniziare. Quando avrai più esperienza potrai considerare portafogli multi-ETF.")
+    
+    if criteria['esg_only']:
+        tips.append("🌱 **Focus ESG:** Ricorda di verificare i criteri ESG specifici di ogni ETF su JustETF.")
+    
+    if criteria['capital_pref'] == 'single':
+        tips.append("💰 **Capitale Limitato:** Con il tuo capitale, un single ETF è la scelta più efficiente. Evita di frammentare troppo.")
+    
+    if criteria['experience'] == "Principiante - È la mia prima volta con investimenti":
+        tips.append("📚 **Principiante:** Studia bene la sezione educativa dell'app e leggi i prospetti su JustETF prima di investire.")
+    
+    if "Pensione" in criteria['investment_goal']:
+        tips.append("⏰ **Pensione:** Con un orizzonte lungo, puoi permetterti maggiore volatilità. Non farti influenzare dalle oscillazioni di breve termine.")
+    
+    if "Tutto o quasi tutto" in criteria['portfolio_percentage']:
+        tips.append("⚠️ **Attenzione:** Questo rappresenta quasi tutto il tuo patrimonio. Assicurati di avere un fondo emergenza separato.")
+    
+    if tips:
+        st.info("💡 **Suggerimenti Personalizzati:**\n\n" + "\n\n".join(tips))
+    
+    # Prossimi passi standard
+    st.success("""
+    ### 🚀 Prossimi Passi:
+    
+    1. **Studia** attentamente i portafogli raccomandati
+    2. **Clicca** sui link JustETF per approfondire ogni ETF
+    3. **Confronta** i costi (TER) e le caratteristiche
+    4. **Verifica** l'allocazione geografica e settoriale
+    5. **Leggi** i prospetti informativi completi
+    6. **Consulta** un professionista prima di investire
+    
+    ⚠️ **Ricorda:** Questa è una guida educativa, non una raccomandazione personalizzata di investimento.
     """)
 
 
@@ -625,9 +901,18 @@ def main():
         st.sidebar.info("""
         🎯 **Modalità Guidata**
         
-        Rispondi ad alcune domande per scoprire i portafogli più adatti a te.
+        Rispondi a 10 domande approfondite per scoprire i portafogli più adatti a te.
         
-        Richiede circa 2 minuti.
+        ⏱️ Richiede circa 3-4 minuti
+        
+        📊 Algoritmo avanzato che analizza:
+        - Profilo personale e età
+        - Capitale e patrimonio
+        - Obiettivi e orizzonte
+        - Esperienza e tolleranza
+        - Preferenze ESG e gestione
+        
+        ⚠️ Il rischio 8 (leverage) è escluso per sicurezza
         """)
         
         portfolio_wizard(portfolios)
@@ -917,9 +1202,9 @@ def display_footer():
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: gray;'>
-        <p><strong>Portfolio ETF Explorer</strong> | Versione 3.0 (Wizard Edition) | Dicembre 2025</p>
+        <p><strong>Portfolio ETF Explorer</strong> | Versione 3.1 (Enhanced Wizard) | Dicembre 2025</p>
         <p><small>Applicazione educativa - Non costituisce consulenza finanziaria</small></p>
-        <p><small>Dati da portfolios_data.py - Verifica sempre presso fonti ufficiali</small></p>
+        <p><small>10 domande approfondite • Rischio 8 escluso • Algoritmo avanzato</small></p>
     </div>
     """, unsafe_allow_html=True)
 
