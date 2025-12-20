@@ -483,7 +483,38 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
     # Rimuovi duplicati e ordina
     recommended_risks = sorted(set(recommended_risks))
     
+    # ============================================================================
+    # ⚠️ CRITICAL FIX: HARD LIMITS BASATI SULLA TOLLERANZA AL RISCHIO
+    # ============================================================================
+    # La tolleranza emotiva ha PRIORITÀ ASSOLUTA su qualsiasi altro fattore.
+    # Non importa l'età, l'orizzonte temporale o gli obiettivi: se una persona
+    # non riesce a gestire emotivamente la volatilità, NON può avere portafogli
+    # ad alto rischio, altrimenti venderà nel momento sbagliato trasformando
+    # perdite temporanee in perdite permanenti.
+    #
+    # Questo è IL fattore più importante: meglio rendimenti minori che vendere in panic.
+    
+    risk_tolerance_hard_caps = {
+        "😰 Venderei immediatamente - Non sopporto le perdite": 2,
+        "😟 Sarei molto preoccupato - Probabilmente venderei": 3,
+        "😐 Sarei preoccupato ma manterrei - Capisco la volatilità": 5,
+        "😊 Lo vedrei come opportunità - Comprerei di più se possibile": 7,
+        "🚀 Sono tranquillo - È normale, compro ancora": 7
+    }
+    
+    max_risk_allowed = risk_tolerance_hard_caps.get(risk_tolerance, 5)
+    
+    # APPLICA IL LIMITE INVALICABILE - rimuovi tutti i livelli superiori al cap
+    recommended_risks = [r for r in recommended_risks if r <= max_risk_allowed]
+    
+    # Se il filtro ha eliminato tutto, usa il massimo consentito e quello sotto
+    if not recommended_risks:
+        recommended_risks = [max(1, max_risk_allowed - 1), max_risk_allowed]
+    
+    # ============================================================================
+    
     # STEP 2: Determina preferenze di complessità
+
     
     # Capitale → influenza su single vs multi
     capital_preference = {
@@ -1202,9 +1233,9 @@ def display_footer():
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: gray;'>
-        <p><strong>Portfolio ETF Explorer</strong> | Versione 3.1 (Enhanced Wizard) | Dicembre 2025</p>
+        <p><strong>Portfolio ETF Explorer</strong> | Versione 3.2 (Critical Risk Tolerance Fix) | Dicembre 2024</p>
         <p><small>Applicazione educativa - Non costituisce consulenza finanziaria</small></p>
-        <p><small>10 domande approfondite • Rischio 8 escluso • Algoritmo avanzato</small></p>
+        <p><small>✅ Hard Limits Tolleranza al Rischio Implementati</small></p>
     </div>
     """, unsafe_allow_html=True)
 
