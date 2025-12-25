@@ -75,7 +75,7 @@ MULTI_PORTFOLIOS = [
     },
     {
         'id': 'PORT6a',
-        'risk_level': 5,
+        'risk_level': 6,
         'esg': 0,
         'min_duration': '10',
         'rebalance': '1y',
@@ -136,7 +136,7 @@ MULTI_PORTFOLIOS = [
             {'percentage': '50', 'name': 'SPDR MSCI World UCITS ETF', 'isin': 'IE00BFY0GT14', 'ter': '0.12'},
             {'percentage': '50', 'name': 'Amundi MSCI World (2x) Leveraged UCITS ETF Acc', 'isin': 'FR0014010HV4', 'ter': '0.60'},
         ],
-        'note': ''
+        'note': '⚠️ Portafoglio con LEVERAGE (2x) - Solo per investitori esperti che comprendono i rischi amplificati'
     },
 ]
 
@@ -292,7 +292,7 @@ ESG_PORTFOLIOS = [
     },
     {
         'id': 'PORT26',
-        'risk_level': 5,
+        'risk_level': 6,
         'esg': 1,
         'min_duration': '10',
         'rebalance': '1y',
