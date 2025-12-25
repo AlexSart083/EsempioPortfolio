@@ -113,16 +113,23 @@ def get_risk_badge_html(risk_level):
 def display_portfolio(portfolio, show_expanded=False):
     """Visualizza un singolo portafoglio in un expander"""
     
-    # Titolo del portafoglio
-    title = f"{portfolio['id']} - Orizzonte: {portfolio['min_duration']} anni"
+    # Titolo del portafoglio con nome friendly
+    title = f"{portfolio['name']}"
     
     # Badge ESG se applicabile
     if portfolio['esg'] == 1:
         title += " 🌱"
     
     with st.expander(title, expanded=show_expanded):
+        # ID tecnico piccolo in alto
+        st.caption(f"ID Tecnico: {portfolio['id']} | Orizzonte minimo: {portfolio['min_duration']} anni")
+        
         # Badge rischio
         st.markdown(get_risk_badge_html(portfolio['risk_level']), unsafe_allow_html=True)
+        
+        # Descrizione strategia (NUOVO)
+        st.markdown("### 🎯 Strategia")
+        st.info(portfolio['strategy_description'])
         
         # Warning speciale per rischio 8
         if portfolio['risk_level'] == 8:
@@ -141,6 +148,8 @@ def display_portfolio(portfolio, show_expanded=False):
             **Consigliato SOLO per investitori esperti che comprendono completamente i rischi del leverage.**
             """)
         
+        st.markdown("---")  # Separatore visivo
+        
         # Informazioni generali
         col1, col2, col3 = st.columns(3)
         
@@ -154,8 +163,8 @@ def display_portfolio(portfolio, show_expanded=False):
             n_components = len(portfolio['components'])
             st.metric("N° ETF", n_components)
         
-        # Note se presenti
-        if portfolio['note']:
+        # Note se presenti (oltre alla strategia)
+        if portfolio['note'] and portfolio['note'] != portfolio.get('strategy_description', ''):
             st.info(f"ℹ️ {portfolio['note']}")
         
         # Tabella componenti
@@ -189,6 +198,7 @@ def display_portfolio(portfolio, show_expanded=False):
             st.markdown("**🔗 Link di approfondimento:**")
             for comp in portfolio['components']:
                 link = f"https://www.justetf.com/it/etf-profile.html?isin={comp['isin']}"
+                st.markdown(f"- [{comp['name']}]({link})")
                 st.markdown(f"- [{comp['name']}]({link})")
 
 
@@ -739,7 +749,8 @@ def display_wizard_results(results, all_portfolios):
                 emoji = "🥉"
                 medal = "Opzione Aggiuntiva"
             
-            st.markdown(f"### {emoji} {medal} - {portfolio['id']}")
+            st.markdown(f"### {emoji} {medal} - {portfolio['name']}")
+            st.caption(f"ID Tecnico: {portfolio['id']}")
             
             # Spiega perché è stato raccomandato
             reasons = []
@@ -1170,10 +1181,10 @@ def display_footer():
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: gray;'>
-        <p><strong>Portfolio ETF Explorer</strong> | Versione 3.3 (Risk 8 Category Fix) | Dicembre 2024</p>
+        <p><strong>Portfolio ETF Explorer</strong> | Versione 4.0 (User-Friendly Edition) | Dicembre 2024</p>
         <p><small>Applicazione educativa - Non costituisce consulenza finanziaria</small></p>
-        <p><small>✅ PORT6a e PORT26 corretti a Rischio 6 (Alto)</small></p>
-        <p><small>✅ Categoria separata "Molto Alto" per Rischio 8 (Leverage)</small></p>
+        <p><small>✨ Nuova versione 4.0: Nomi descrittivi e spiegazioni strategiche per ogni portafoglio</small></p>
+        <p><small>✅ PORT6a e PORT26 corretti a Rischio 6 (Alto) | Categoria separata "Molto Alto" per Rischio 8 (Leverage)</small></p>
     </div>
     """, unsafe_allow_html=True)
 
