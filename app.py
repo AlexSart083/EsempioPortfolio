@@ -552,15 +552,22 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
     capital_pref = capital_preference.get(initial_capital, "flexible")
     
     # Determina preferenza single/multi
+    # FIX: Considera anche esperienza e complessità
+    # Un utente esperto con capitale limitato può gestire 2-4 ETF
     single_only = (
-        complexity == "Zero - Voglio investire e dimenticare (set & forget)" or
+        complexity == "Zero - Voglio investire e dimenticare (set & forget)" and
         capital_pref == "single"
     )
+    
+    # Se sei esperto o intermedio, anche con poco capitale, puoi gestire portafogli multi-ETF semplici
+    if experience in ["Esperto - Investo regolarmente e comprendo i mercati", 
+                      "Intermedio - Ho già investito in ETF o fondi"]:
+        single_only = False
     
     prefer_single = (
         complexity in ["Zero - Voglio investire e dimenticare (set & forget)", 
                       "Minima - Al massimo un controllo annuale"] or
-        capital_pref == "single"
+        (capital_pref == "single" and experience == "Principiante - È la mia prima volta con investimenti")
     )
     
     # STEP 3: Determina preferenza ESG
