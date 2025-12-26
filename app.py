@@ -211,7 +211,7 @@ def portfolio_wizard(portfolios):
     Questo strumento ti aiuterà a restringere le opzioni in base al tuo profilo di investitore.
     """)
     
-    st.info("📝 Il questionario richiede circa 3-4 minuti. Più sei preciso nelle risposte, migliore sarà il risultato!")
+    st.info("📝 Il questionario richiede circa 3 minuti. Più sei preciso nelle risposte, migliore sarà il risultato!")
     
     st.divider()
     
@@ -238,25 +238,7 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 2: Capitale Iniziale
-    st.subheader("💰 Passo 2: Capitale da Investire")
-    st.markdown("**Quanto pensi di investire inizialmente?**")
-    
-    initial_capital = st.radio(
-        "Seleziona la fascia:",
-        [
-            "Meno di 5.000€",
-            "5.000€ - 20.000€",
-            "20.000€ - 50.000€",
-            "Più di 50.000€"
-        ],
-        index=None,
-        help="Il capitale influenza le scelte di diversificazione e i costi di transazione"
-    )
-    
-    st.divider()
-    
-    # Step 3: Orizzonte Temporale
+    # Step 2: Orizzonte Temporale
     st.subheader("⏰ Passo 3: Orizzonte Temporale")
     st.markdown("**Quando prevedi di aver bisogno di questi soldi?**")
     
@@ -275,8 +257,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 4: Obiettivo Investimento
-    st.subheader("🎯 Passo 4: Obiettivo dell'Investimento")
+    # Step 3: Obiettivo Investimento
+    st.subheader("🎯 Passo 3: Obiettivo dell'Investimento")
     st.markdown("**Qual è il tuo obiettivo principale con questo investimento?**")
     
     investment_goal = st.radio(
@@ -294,8 +276,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 5: Percentuale Patrimonio
-    st.subheader("💼 Passo 5: Peso nel Tuo Patrimonio")
+    # Step 4: Percentuale Patrimonio
+    st.subheader("💼 Passo 4: Peso nel Tuo Patrimonio")
     st.markdown("**Questo investimento rappresenta che percentuale del tuo patrimonio totale?**")
     
     portfolio_percentage = st.radio(
@@ -312,8 +294,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 6: Esperienza
-    st.subheader("📚 Passo 6: Esperienza con gli Investimenti")
+    # Step 5: Esperienza
+    st.subheader("📚 Passo 5: Esperienza con gli Investimenti")
     st.markdown("**Quanto sei familiare con gli investimenti in ETF?**")
     
     experience = st.radio(
@@ -330,8 +312,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 7: Tolleranza al Rischio Emotiva
-    st.subheader("⚖️ Passo 7: Tolleranza al Rischio")
+    # Step 6: Tolleranza al Rischio Emotiva
+    st.subheader("⚖️ Passo 6: Tolleranza al Rischio")
     st.markdown("**Come reagiresti se il tuo investimento perdesse il 30% in un anno?**")
     
     risk_tolerance = st.radio(
@@ -349,8 +331,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 8: Reddito e Stabilità
-    st.subheader("💵 Passo 8: Situazione Reddituale")
+    # Step 7: Reddito e Stabilità
+    st.subheader("💵 Passo 7: Situazione Reddituale")
     st.markdown("**Come descriveresti il tuo reddito e la tua stabilità lavorativa?**")
     
     income_stability = st.radio(
@@ -367,8 +349,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 9: Preferenza ESG
-    st.subheader("🌱 Passo 9: Investimenti Sostenibili")
+    # Step 8: Preferenza ESG
+    st.subheader("🌱 Passo 8: Investimenti Sostenibili")
     st.markdown("**Ti interessa investire secondo criteri ESG (ambientali, sociali, governance)?**")
     
     esg_preference = st.radio(
@@ -384,8 +366,8 @@ def portfolio_wizard(portfolios):
     
     st.divider()
     
-    # Step 10: Complessità
-    st.subheader("🔧 Passo 10: Tempo e Complessità")
+    # Step 9: Complessità
+    st.subheader("🔧 Passo 9: Tempo e Complessità")
     st.markdown("**Quanto tempo vuoi dedicare alla gestione del portafoglio?**")
     
     complexity = st.radio(
@@ -404,13 +386,12 @@ def portfolio_wizard(portfolios):
     
     # Bottone per calcolare risultati
     if st.button("🎯 Trova i Miei Portafogli Ideali", type="primary", use_container_width=True):
-        if all([age_range, initial_capital, time_horizon, investment_goal, portfolio_percentage, 
+        if all([age_range, time_horizon, investment_goal, portfolio_percentage, 
                 experience, risk_tolerance, income_stability, esg_preference, complexity]):
             # Calcola i suggerimenti
             results = calculate_recommendations(
                 portfolios,
                 age_range,
-                initial_capital,
                 time_horizon,
                 investment_goal,
                 portfolio_percentage,
@@ -438,7 +419,7 @@ def portfolio_wizard(portfolios):
             st.rerun()
 
 
-def calculate_recommendations(portfolios, age_range, initial_capital, time_horizon, investment_goal, 
+def calculate_recommendations(portfolios, age_range, time_horizon, investment_goal, 
                              portfolio_percentage, experience, risk_tolerance, income_stability, 
                              esg_preference, complexity):
     """Calcola i portafogli raccomandati in base alle risposte del wizard"""
@@ -540,33 +521,17 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
     
     # STEP 2: Determina preferenze di complessità
     
-    # Capitale → influenza su single vs multi
-    capital_preference = {
-        "Meno di 5.000€": "single",
-        "5.000€ - 20.000€": "flexible",
-        "20.000€ - 50.000€": "flexible",
-        "Più di 50.000€": "multi_ok"
-    }
-    
-    capital_pref = capital_preference.get(initial_capital, "flexible")
-    
-    # Determina preferenza single/multi
-    # FIX: Considera anche esperienza e complessità
-    # Un utente esperto con capitale limitato può gestire 2-4 ETF
+    # NUOVA LOGICA SEMPLIFICATA:
+    # Single ETF SOLO se: complessità Zero OR esperienza Principiante
     single_only = (
-        complexity == "Zero - Voglio investire e dimenticare (set & forget)" and
-        capital_pref == "single"
+        complexity == "Zero - Voglio investire e dimenticare (set & forget)" or
+        experience == "Principiante - È la mia prima volta con investimenti"
     )
     
-    # Se sei esperto o intermedio, anche con poco capitale, puoi gestire portafogli multi-ETF semplici
-    if experience in ["Esperto - Investo regolarmente e comprendo i mercati", 
-                      "Intermedio - Ho già investito in ETF o fondi"]:
-        single_only = False
-    
+    # Preferenza per single (ma non obbligatorio)
     prefer_single = (
         complexity in ["Zero - Voglio investire e dimenticare (set & forget)", 
-                      "Minima - Al massimo un controllo annuale"] or
-        (capital_pref == "single" and experience == "Principiante - È la mia prima volta con investimenti")
+                      "Minima - Al massimo un controllo annuale"]
     )
     
     # STEP 3: Determina preferenza ESG
@@ -640,14 +605,6 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
             if portfolio['rebalance'] in ['NO', '1y']:
                 score += 8
         
-        # Bonus per portafogli semplici con poco capitale
-        if capital_pref == "single" and len(portfolio['components']) == 1:
-            score += 10
-        
-        # Penalità per portafogli troppo semplici con molto capitale
-        if capital_pref == "multi_ok" and len(portfolio['components']) == 1:
-            score -= 3
-        
         # Bonus per match con obiettivo
         if investment_goal == "Preservazione capitale - Proteggere dall'inflazione":
             if portfolio['risk_level'] <= 3:
@@ -678,7 +635,6 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
         'recommended_risks': recommended_risks,
         'criteria': {
             'age_range': age_range,
-            'initial_capital': initial_capital,
             'time_horizon': time_horizon,
             'investment_goal': investment_goal,
             'portfolio_percentage': portfolio_percentage,
@@ -689,8 +645,7 @@ def calculate_recommendations(portfolios, age_range, initial_capital, time_horiz
             'complexity': complexity,
             'single_only': single_only,
             'esg_only': esg_only,
-            'max_etfs': max_etfs,
-            'capital_pref': capital_pref
+            'max_etfs': max_etfs
         }
     }
 
@@ -710,7 +665,6 @@ def display_wizard_results(results, all_portfolios):
             st.markdown(f"""
             **👤 Profilo Personale:**
             - Età: {criteria['age_range']}
-            - Capitale: {criteria['initial_capital']}
             - Patrimonio: {criteria['portfolio_percentage']}
             
             **⏰ Profilo Temporale:**
@@ -728,7 +682,6 @@ def display_wizard_results(results, all_portfolios):
             **📚 Esperienza e Preferenze:**
             - Livello: {criteria['experience']}
             - Max ETF per portafoglio: {criteria['max_etfs']}
-            - Preferenza capitale: {criteria['capital_pref']}
             
             **🎯 Scelte Operative:**
             - ESG: {criteria['esg_preference']}
@@ -827,9 +780,6 @@ def display_wizard_results(results, all_portfolios):
     
     if criteria['esg_only']:
         tips.append("🌱 **Focus ESG:** Ricorda di verificare i criteri ESG specifici di ogni ETF su JustETF.")
-    
-    if criteria['capital_pref'] == 'single':
-        tips.append("💰 **Capitale Limitato:** Con il tuo capitale, un single ETF è la scelta più efficiente. Evita di frammentare troppo.")
     
     if criteria['experience'] == "Principiante - È la mia prima volta con investimenti":
         tips.append("📚 **Principiante:** Studia bene la sezione educativa dell'app e leggi i prospetti su JustETF prima di investire.")
@@ -1302,9 +1252,9 @@ def main():
         st.sidebar.info("""
         🎯 **Modalità Guidata**
         
-        Rispondi a 10 domande approfondite per scoprire i portafogli più adatti a te.
+        Rispondi a 9 domande approfondite per scoprire i portafogli più adatti a te.
         
-        ⏱️ Richiede circa 3-4 minuti
+        ⏱️ Richiede circa 3 minuti
         
         📊 Algoritmo avanzato che analizza:
         - Profilo personale e età
