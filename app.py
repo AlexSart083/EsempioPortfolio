@@ -199,7 +199,6 @@ def display_portfolio(portfolio, show_expanded=False):
             for comp in portfolio['components']:
                 link = f"https://www.justetf.com/it/etf-profile.html?isin={comp['isin']}"
                 st.markdown(f"- [{comp['name']}]({link})")
-                st.markdown(f"- [{comp['name']}]({link})")
 
 
 def portfolio_wizard(portfolios):
