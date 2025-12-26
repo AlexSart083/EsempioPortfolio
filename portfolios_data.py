@@ -375,88 +375,41 @@ ESG_PORTFOLIOS = [
 ]
 
 # ============================================================================
-# FUNZIONI HELPER (invariate)
+# FUNZIONI HELPER
 # ============================================================================
 
 def get_all_portfolios():
-    """
-    Restituisce tutti i portafogli organizzati per categoria
-    
-    Returns:
-        dict: Dizionario con chiavi 'multi', 'single', 'esg'
-    """
+    """Restituisce tutti i portafogli organizzati per categoria"""
     return {
         'multi': MULTI_PORTFOLIOS,
         'single': SINGLE_PORTFOLIOS,
         'esg': ESG_PORTFOLIOS
     }
 
-
 def get_portfolio_by_id(portfolio_id):
-    """
-    Cerca un portafoglio specifico per ID
-    
-    Args:
-        portfolio_id (str): ID del portafoglio (es. 'PORT5')
-        
-    Returns:
-        dict or None: Il portafoglio se trovato, altrimenti None
-    """
+    """Cerca un portafoglio specifico per ID"""
     all_portfolios = MULTI_PORTFOLIOS + SINGLE_PORTFOLIOS + ESG_PORTFOLIOS
-    
     for portfolio in all_portfolios:
         if portfolio['id'] == portfolio_id:
             return portfolio
-    
     return None
 
-
 def get_portfolios_by_risk(risk_level):
-    """
-    Filtra i portafogli per livello di rischio
-    
-    Args:
-        risk_level (int): Livello di rischio da 1 a 8
-        
-    Returns:
-        list: Lista di portafogli con il livello di rischio specificato
-    """
+    """Filtra i portafogli per livello di rischio"""
     all_portfolios = MULTI_PORTFOLIOS + SINGLE_PORTFOLIOS + ESG_PORTFOLIOS
-    
     return [p for p in all_portfolios if p['risk_level'] == risk_level]
 
-
 def get_portfolios_by_esg(esg_only=True):
-    """
-    Filtra i portafogli per criterio ESG
-    
-    Args:
-        esg_only (bool): Se True, restituisce solo portafogli ESG
-        
-    Returns:
-        list: Lista di portafogli filtrati
-    """
+    """Filtra i portafogli per criterio ESG"""
     all_portfolios = MULTI_PORTFOLIOS + SINGLE_PORTFOLIOS + ESG_PORTFOLIOS
-    
     if esg_only:
         return [p for p in all_portfolios if p['esg'] == 1]
     else:
         return [p for p in all_portfolios if p['esg'] == 0]
 
-
-# ============================================================================
-# STATISTICHE
-# ============================================================================
-
 def get_statistics():
-    """
-    Restituisce statistiche sui portafogli disponibili
-    
-    Returns:
-        dict: Dizionario con varie statistiche
-    """
+    """Restituisce statistiche sui portafogli disponibili"""
     all_portfolios = MULTI_PORTFOLIOS + SINGLE_PORTFOLIOS + ESG_PORTFOLIOS
-    
     return {
         'total_portfolios': len(all_portfolios),
         'multi_portfolios': len(MULTI_PORTFOLIOS),
@@ -469,22 +422,3 @@ def get_statistics():
             for comp in p['components']
         ))
     }
-
-
-if __name__ == "__main__":
-    # Test del modulo
-    stats = get_statistics()
-    print("📊 Statistiche Database Portafogli v4.0:")
-    print(f"  - Portafogli totali: {stats['total_portfolios']}")
-    print(f"  - Multi-ETF: {stats['multi_portfolios']}")
-    print(f"  - Single ETF: {stats['single_portfolios']}")
-    print(f"  - ESG: {stats['esg_portfolios']}")
-    print(f"  - Livelli di rischio: {stats['risk_levels']}")
-    print(f"  - ETF unici: {stats['unique_etfs']}")
-    
-    print("\n📝 Esempio portafoglio con nome friendly:")
-    port = get_portfolio_by_id('PORT5')
-    if port:
-        print(f"  - ID: {port['id']}")
-        print(f"  - Nome: {port['name']}")
-        print(f"  - Strategia: {port['strategy_description'][:100]}...")
