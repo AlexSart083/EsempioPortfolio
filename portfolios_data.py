@@ -1,7 +1,7 @@
 """
 Database dei Portafogli ETF
 Contiene tutti i portafogli modello organizzati per categoria
-Versione 4.0 - Con nomi user-friendly e descrizioni strategiche
+Versione 4.1 - Modifiche: PORT3, PORT5, PORT6a con oro invece di inflation-linked
 """
 
 # ============================================================================
@@ -73,10 +73,10 @@ MULTI_PORTFOLIOS = [
         'esg': 0,
         'min_duration': '10',
         'rebalance': '1y',
-        'strategy_description': 'Portafoglio dinamico con 60% azionario globale (All-World) e 40% obbligazionario. Buon compromesso tra potenziale di crescita e controllo del rischio. Adatto per orizzonti lunghi con tolleranza media alla volatilità.',
+        'strategy_description': 'Portafoglio dinamico con 60% azionario globale (All-World), 30% obbligazionario e 10% oro fisico. L\'oro sostituisce le obbligazioni inflation-linked per protezione dall\'inflazione. Buon compromesso tra potenziale di crescita e controllo del rischio. Adatto per orizzonti lunghi con tolleranza media alla volatilità.',
         'components': [
             {'percentage': '60', 'name': 'Vanguard FTSE All-World UCITS ETF (USD) Accumulating', 'isin': 'IE00BK5BQT80', 'ter': '0.19'},
-            {'percentage': '10', 'name': 'iShares Euro Inflation Linked Government Bond UCITS ETF', 'isin': 'IE00B0M62X26', 'ter': '0.09'},
+            {'percentage': '10', 'name': 'WisdomTree Core Physical Gold', 'isin': 'JE00BN2CJ301', 'ter': '0.12'},
             {'percentage': '10', 'name': 'iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc)', 'isin': 'IE000NVM56L3', 'ter': '0.10'},
             {'percentage': '20', 'name': 'iShares Euro Government Bond 3-5yr UCITS ETF', 'isin': 'IE00B1FZS681', 'ter': '0.15'},
         ],
@@ -89,9 +89,9 @@ MULTI_PORTFOLIOS = [
         'esg': 0,
         'min_duration': '10',
         'rebalance': '1y',
-        'strategy_description': 'Portafoglio ad alta esposizione azionaria (80%) con diversificazione globale, protezione valutaria parziale (10% EUR hedged) e oro (10%). Minima componente obbligazionaria (10%). Per chi cerca crescita con un pizzico di protezione.',
+        'strategy_description': 'Portafoglio ad alta esposizione azionaria (80%) con diversificazione globale MSCI World, protezione valutaria parziale (10% EUR hedged) e oro (10%). Minima componente obbligazionaria (10%). Per chi cerca crescita con un pizzico di protezione.',
         'components': [
-            {'percentage': '70', 'name': 'Amundi Prime All Country World UCITS', 'isin': 'IE0003XJA0J9', 'ter': '0.07'},
+            {'percentage': '70', 'name': 'SPDR MSCI World UCITS ETF', 'isin': 'IE00BFY0GT14', 'ter': '0.12'},
             {'percentage': '10', 'name': 'Xtrackers MSCI World UCITS ETF 2C - EUR Hedged', 'isin': 'IE000ONQ3X90', 'ter': '0.17'},
             {'percentage': '10', 'name': 'WisdomTree Core Physical Gold', 'isin': 'JE00BN2CJ301', 'ter': '0.12'},
             {'percentage': '10', 'name': 'iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc)', 'isin': 'IE000F6G1DE0', 'ter': '0.20'},
