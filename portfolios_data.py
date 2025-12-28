@@ -1,7 +1,7 @@
 """
 Database dei Portafogli ETF
 Contiene tutti i portafogli modello organizzati per categoria
-Versione 4.2 - Modifiche: PORT6a con Momentum invece di EUR Hedged
+Versione 4.3 - Modifiche: PORT6a semplificato 80/10/10, consolidati overnight+floating in PORT2a e PORT2b
 """
 
 # ============================================================================
@@ -16,15 +16,14 @@ MULTI_PORTFOLIOS = [
         'esg': 0,
         'min_duration': '5',
         'rebalance': '1y',
-        'strategy_description': 'Portafoglio prudente con minima esposizione azionaria (20%), forte presenza di obbligazioni breve termine e liquidità. Include oro per diversificazione. Ideale per chi cerca stabilità e protezione del capitale con un pizzico di crescita.',
+        'strategy_description': 'Portafoglio prudente con minima esposizione azionaria (20%), forte presenza di obbligazioni breve termine e floating rate (30%). Include oro per diversificazione. Le obbligazioni floating rate proteggono dal rialzo dei tassi. Ideale per chi cerca stabilità e protezione del capitale con un pizzico di crescita.',
         'components': [
             {'percentage': '10', 'name': 'SPDR MSCI World UCITS ETF', 'isin': 'IE00BFY0GT14', 'ter': '0.12'},
             {'percentage': '10', 'name': 'Xtrackers MSCI World Minimum Volatility UCITS ETF 1C', 'isin': 'IE00BL25JN58', 'ter': '0.25'},
             {'percentage': '10', 'name': 'WisdomTree Core Physical Gold', 'isin': 'JE00BN2CJ301', 'ter': '0.12'},
-            {'percentage': '20', 'name': 'Amundi Smart Overnight Return UCITS ETF Acc', 'isin': 'LU1190417599', 'ter': '0.10'},
+            {'percentage': '30', 'name': 'iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc)', 'isin': 'IE000NVM56L3', 'ter': '0.10'},
             {'percentage': '30', 'name': 'iShares EUR Corporate Bond 0-3yr ESG SRI UCITS ETF EUR (Acc)', 'isin': 'IE000AK4O3W6', 'ter': '0.12'},
             {'percentage': '10', 'name': 'iShares Euro Inflation Linked Government Bond UCITS ETF', 'isin': 'IE00B0M62X26', 'ter': '0.09'},
-            {'percentage': '10', 'name': 'iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc)', 'isin': 'IE000NVM56L3', 'ter': '0.10'},
         ],
         'note': ''
     },
@@ -35,15 +34,14 @@ MULTI_PORTFOLIOS = [
         'esg': 0,
         'min_duration': '7',
         'rebalance': '1y',
-        'strategy_description': 'Portafoglio conservativo con focus sulla qualità delle aziende (Quality factor) e bassa volatilità (Minimum Volatility). 30% azionario selezionato per stabilità, 70% obbligazionario/liquidità. Per chi vuole protezione ma con esposizione a società solide.',
+        'strategy_description': 'Portafoglio conservativo con focus sulla qualità delle aziende (Quality factor) e bassa volatilità (Minimum Volatility). 30% azionario selezionato per stabilità, 70% obbligazionario con forte presenza di floating rate (30%) per protezione dal rialzo tassi. Per chi vuole protezione ma con esposizione a società solide.',
         'components': [
             {'percentage': '15', 'name': 'Xtrackers MSCI World Minimum Volatility UCITS ETF 1C', 'isin': 'IE00BL25JN58', 'ter': '0.25'},
             {'percentage': '15', 'name': 'Xtrackers MSCI World Quality UCITS ETF 1C', 'isin': 'IE00BL25JL35', 'ter': '0.25'},
             {'percentage': '10', 'name': 'WisdomTree Core Physical Gold', 'isin': 'JE00BN2CJ301', 'ter': '0.12'},
-            {'percentage': '15', 'name': 'Amundi Smart Overnight Return UCITS ETF Acc', 'isin': 'LU1190417599', 'ter': '0.10'},
+            {'percentage': '30', 'name': 'iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc)', 'isin': 'IE000NVM56L3', 'ter': '0.10'},
             {'percentage': '15', 'name': 'iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc)', 'isin': 'IE000F6G1DE0', 'ter': '0.20'},
             {'percentage': '15', 'name': 'iShares Euro Inflation Linked Government Bond UCITS ETF', 'isin': 'IE00B0M62X26', 'ter': '0.09'},
-            {'percentage': '15', 'name': 'iShares EUR Floating Rate Bond Advanced UCITS ETF EUR (Acc)', 'isin': 'IE000NVM56L3', 'ter': '0.10'},
         ],
         'note': ''
     },
@@ -82,15 +80,14 @@ MULTI_PORTFOLIOS = [
     },
     {
         'id': 'PORT6a',
-        'name': 'Aggressivo Globale Momentum + Oro',
+        'name': 'Aggressivo Classico 80/10/10',
         'risk_level': 6,
         'esg': 0,
         'min_duration': '10',
         'rebalance': '1y',
-        'strategy_description': 'Portafoglio ad alta esposizione azionaria (80%) con diversificazione globale MSCI World (70%), tilt Momentum (10% su titoli con forte performance recente) e oro (10%). Minima componente obbligazionaria (10%). Il fattore Momentum punta a catturare il trend di titoli con buone performance negli ultimi 6-12 mesi. Per chi cerca crescita con un approccio factor-based.',
+        'strategy_description': 'Portafoglio aggressivo classico con 80% azionario globale (MSCI World), 10% oro fisico per protezione dall\'inflazione e 10% obbligazionario corporate breve termine per minima stabilità. Approccio tradizionale e semplice con soli 3 componenti. Ideale per chi cerca forte crescita con un minimo di diversificazione difensiva.',
         'components': [
-            {'percentage': '70', 'name': 'SPDR MSCI World UCITS ETF', 'isin': 'IE00BFY0GT14', 'ter': '0.12'},
-            {'percentage': '10', 'name': 'Xtrackers MSCI World Momentum UCITS ETF 1C', 'isin': 'IE00BL25JP72', 'ter': '0.25'},
+            {'percentage': '80', 'name': 'SPDR MSCI World UCITS ETF', 'isin': 'IE00BFY0GT14', 'ter': '0.12'},
             {'percentage': '10', 'name': 'WisdomTree Core Physical Gold', 'isin': 'JE00BN2CJ301', 'ter': '0.12'},
             {'percentage': '10', 'name': 'iShares EUR Corporate Bond 1-5yr UCITS ETF EUR (Acc)', 'isin': 'IE000F6G1DE0', 'ter': '0.20'},
         ],
